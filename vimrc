@@ -27,6 +27,12 @@ set splitbelow splitright
 set incsearch noignorecase
 set shortmess+=I showcmd
 
+if has('gui_running')
+  set guioptions-=T  "remove toolbar
+  set guioptions-=m  "remove menubar
+  set guioptions-=r  "remove right-hand scroll bar
+endif
+
 filetype indent on
 filetype plugin on
 
