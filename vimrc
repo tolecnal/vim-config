@@ -27,12 +27,21 @@ set splitbelow splitright
 set incsearch noignorecase
 set shortmess+=I showcmd
 
+"resizing splits
+if bufwinnr(1)
+  map + <C-W>+
+  map - <C-W>-
+  map { <C-W>< 
+  map } <C-W>> 
+endif
+
 if has('gui_running')
   set guioptions-=T  "remove toolbar
   set guioptions-=m  "remove menubar
   set guioptions-=r  "remove right-hand scroll bar
 endif
 
+"setting ident and tap expanding depending on file type
 filetype indent on
 filetype plugin on
 
@@ -65,7 +74,7 @@ if has("autocmd")
   augroup gzip
     " Remove all gzip autocommands
     au!
-  
+
     " Enable editing of gzipped files
     "	  read:	set binary mode before reading the file
     "		uncompress text in buffer after reading
@@ -77,14 +86,18 @@ if has("autocmd")
     autocmd BufReadPost,FileReadPost	*.gz set nobin
     autocmd BufReadPost,FileReadPost	*.gz let &ch = ch_save|unlet ch_save
     autocmd BufReadPost,FileReadPost	*.gz execute ":doautocmd BufReadPost " . expand("%:r")
-  
     autocmd BufWritePost,FileWritePost	*.gz !mv <afile> <afile>:r
     autocmd BufWritePost,FileWritePost	*.gz !gzip <afile>:r
-  
-    autocmd FileAppendPre			*.gz !gunzip <afile>
-    autocmd FileAppendPre			*.gz !mv <afile>:r <afile>
+    autocmd FileAppendPre		*.gz !gunzip <afile>
+    autocmd FileAppendPre		*.gz !mv <afile>:r <afile>
     autocmd FileAppendPost		*.gz !mv <afile> <afile>:r
     autocmd FileAppendPost		*.gz !gzip <afile>:r
   augroup END
+endif
+
+if has('gui_running')
+  set guioptions-=T  "remove toolbar
+  set guioptions-=m  "remove menubar
+  set guioptions-=r  "remove right-hand scroll bar
 endif
 
