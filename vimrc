@@ -16,9 +16,12 @@ set viminfo='20,\"50,h history=50
 
 set ruler
 
+set cursorline
 set visualbell
 set autoindent
 set hlsearch
+
+set nowrap linebreak nolist
 
 set autochdir
 set formatoptions=tcroql1 nojoinspaces
@@ -63,7 +66,7 @@ if has("autocmd")
   au FileType xml set ai et sw=2 sts=2 noexpandtab
   au FileType sgml set ai et sw=2 sts=2 noexpandtab
   au FileType html,php set matchpairs+=<:> indentexpr= autoindent
-  au FileType css set expandtab indentexpr=
+  au FileType css,scss set ai sw=4 sts=4 expandtab indentexpr=
   au FileType make setlocal noet ts=4 sw=4 sts=4
   au FileType eruby set ai et sw=4 sts=4 expandtab
   au FileType javascript set ai et sw=4 sts=4 expandtab
@@ -100,6 +103,10 @@ if has('gui_running')
   set guioptions-=T  " remove toolbar
   set guioptions-=m  " remove menubar
   set guioptions-=r  " remove right-hand scroll bar
+  set guioptions-=L  " remove right-hand scroll bar
+  set guioptions-=e  " text tabs
+  set gfn=Monaco\ 10 " font
+  
 endif
 
 " show invisibles
