@@ -1,3 +1,6 @@
+" pathogen
+call pathogen#infect()
+
 colorscheme railscasts_transparent
 
 set undolevels=100
@@ -118,3 +121,10 @@ endif
 " show invisibles
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
+
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+"  Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
