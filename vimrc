@@ -40,7 +40,13 @@ if bufwinnr(1)
   map <leader>] <C-W>> 
 endif
 
-" setting ident and tap expanding depending on file type
+" spell checking
+nmap <silent> <leader>s :set spell!<CR>
+
+" highlighting search matches
+nmap <silent> <leader>h :set hlsearch!<CR>
+
+" setting indent and tap expanding depending on file type
 filetype indent on
 filetype plugin on
 
@@ -79,7 +85,7 @@ if has("autocmd")
     "  read:  set binary mode before reading the file
     "    uncompress text in buffer after reading
     "  write:  compress file after writing
-    "  ppend:  uncompress file, append, compress file
+    "  append:  uncompress file, append, compress file
     au BufReadPre,FileReadPre *.gz set bin
     au BufReadPost,FileReadPost *.gz let ch_save = &ch|set ch=2
     au BufReadPost,FileReadPost *.gz '[,']!gunzip
@@ -98,7 +104,7 @@ endif
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
-" minimalizing GUI
+" minimizing GUI
 if has('gui_running')
   set guioptions-=T  " remove toolbar
   set guioptions-=m  " remove menubar
