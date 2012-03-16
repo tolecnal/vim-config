@@ -3,6 +3,8 @@ call pathogen#infect()
 
 colorscheme railscasts_transparent
 
+set fileencoding=utf-8
+
 set undolevels=100
 
 syntax on
@@ -53,6 +55,9 @@ nmap <silent> <leader>h :set hlsearch!<CR>
 filetype indent on
 filetype plugin on
 
+" no automatic text wrapping for most formats
+set fo-=t
+
 if has("autocmd")
   " indent per type
   au FileType c set cindent tw=79
@@ -62,7 +67,7 @@ if has("autocmd")
   au FileType ruby set ai et sw=2 sts=2 expandtab tw=78
   au FileType perl set ai et sw=4 sts=4 expandtab tw=78 cindent
   au FileType awk set ai et sw=4 sts=4 noexpandtab tw=78
-  au FileType tex set ai et sw=2 sts=2 noexpandtab tw=78
+  au FileType tex set ai et sw=2 sts=2 noexpandtab tw=78 fo+=t
   au FileType cpp set cindent tw=79
   au FileType php set ai et sw=4 sts=4 ts=4 cindent tw=78
   au FileType html set ai et sw=2 sts=2 expandtab tw=78
@@ -72,12 +77,12 @@ if has("autocmd")
   au FileType yacc set ai et sw=2 sts=2 noexpandtab
   au FileType vim set ai et sw=2 sts=2 expandtab
   au FileType babe set ai et sw=2 sts=2 noexpandtab
-  au FileType xml set ai et sw=2 sts=2 noexpandtab
-  au FileType sgml set ai et sw=2 sts=2 noexpandtab
-  au FileType html,php set matchpairs+=<:> indentexpr= autoindent
+  au FileType xml set ai et sw=2 sts=2 noexpandtab fo+=t
+  au FileType sgml set ai et sw=2 sts=2 noexpandtab fo+=t
+  au FileType html,php set matchpairs+=<:> indentexpr= autoindent fo+=t
   au FileType css,scss set ai sw=4 sts=4 expandtab indentexpr=
   au FileType make setlocal noet ts=4 sw=4 sts=4
-  au FileType eruby set ai et sw=4 sts=4 expandtab
+  au FileType eruby set ai et sw=4 sts=4 expandtab fo+=t
   au FileType javascript set ai et sw=4 sts=4 expandtab
   
   augroup gzip
@@ -102,6 +107,10 @@ if has("autocmd")
     au FileAppendPost           *.gz !mv <afile> <afile>:r
     au FileAppendPost           *.gz !gzip <afile>:r
   augroup END
+  
+  " autoreload vimrc
+  au bufwritepost .vimrc source $MYVIMRC
+  au bufwritepost _vimrc source $MYVIMRC
 endif
 
 " Don't use Ex mode, use Q for formatting
@@ -131,3 +140,6 @@ vmap <C-Down> ]egv
 
 " Gundo - visualizing redo/undo changes
 nmap <leader>g :GundoToggle<CR>
+
+" binding for editing vimrc
+nmap <leader>v :tabedit $MYVIMRC<CR>

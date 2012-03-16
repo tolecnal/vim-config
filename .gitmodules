@@ -10,3 +10,6 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/color-picker"]
+	path = bundle/color-picker
+	url = https://github.com/vim-scripts/VIM-Color-Picker.git
