@@ -5,7 +5,9 @@
 * Python support
 * PyGtk
 
-##Instalation
+##Installation
+It's as simple ass that:
+
 ```bash
 git clone https://github.com/ivyl/vim-config.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
@@ -27,14 +29,14 @@ git submodule update
 [railscasts](http://railscasts.com/about) with transparent background
 
 ##Bindings
-\l - toggle show invisibles
-\h - toggle highligh search matches
-\g - gundo toggle
-\. \, \[ \] - resize splits
-\s - togle spell checking
-\v - edit your vimrc in new tab, config is reloaded on save
-<C-Up> - move your code one line up
-<C-Down> - move your code one line down
+* \l - toggle show invisibles
+* \h - toggle highligh search matches
+* \g - gundo toggle
+* \. \, \[ \] - resize splits
+* \s - togle spell checking
+* \v - edit your vimrc in new tab, config is reloaded on save
+* <C-Up> - move your code one line up
+* <C-Down> - move your code one line down
 
 ##Features
 * editing gziped files
