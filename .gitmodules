@@ -13,3 +13,6 @@
 [submodule "bundle/color-picker"]
 	path = bundle/color-picker
 	url = https://github.com/vim-scripts/VIM-Color-Picker.git
+[submodule "bundle/xmledit"]
+	path = bundle/xmledit
+	url = https://github.com/sukima/xmledit.git

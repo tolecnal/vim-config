@@ -113,9 +113,6 @@ if has("autocmd")
   au bufwritepost _vimrc source $MYVIMRC
 endif
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
 " minimizing GUI
 if has('gui_running')
   set guioptions-=T  " remove toolbar
@@ -123,8 +120,7 @@ if has('gui_running')
   set guioptions-=r  " remove right-hand scroll bar
   set guioptions-=L  " remove right-hand scroll bar
   set guioptions-=e  " text tabs
-  set gfn=Monaco\ 10 " font
-  
+  set gfn=Droid\ Sans\ Mono\ 10 " font
 endif
 
 " show invisibles
