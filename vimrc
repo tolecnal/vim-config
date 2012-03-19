@@ -1,4 +1,5 @@
 " pathogen
+runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 colorscheme railscasts_transparent
@@ -57,6 +58,11 @@ filetype plugin on
 
 " no automatic text wrapping for most formats
 set fo-=t
+
+"Filemanager options
+let g:netrw_liststyle=3 " Use tree-mode as default view
+let g:netrw_browse_split=4 " Open file in previous buffer
+let g:netrw_preview=1 " preview window shown in a vertically split
 
 if has("autocmd")
   " indent per type
