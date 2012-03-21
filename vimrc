@@ -2,7 +2,7 @@
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
-colorscheme railscasts_transparent
+colorscheme aldmeris
 
 set fileencoding=utf-8
 
