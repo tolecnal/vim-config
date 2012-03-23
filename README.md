@@ -24,9 +24,14 @@ git submodule update
 * [tabular](https://github.com/godlygeek/tabular)
 * [unimpaired](https://github.com/tpope/vim-unimpaired)
 * [hexhighlight](http://www.vim.org/scripts/script.php?script_id=2937)
+* [supertab](http://www.vim.org/scripts/script.php?script_id=1643)
+* [surround](https://github.com/tpope/vim-surround)
+* [commentary](https://github.com/tpope/vim-commentary)
+* [pathogen](https://github.com/tpope/vim-pathogen)
 
 ##Theme
 [railscasts](http://railscasts.com/about) with transparent background
+[aldmeris](http://www.vim.org/scripts/script.php?script_id=3673)
 
 ##Bindings
 * \l - toggle show invisibles
