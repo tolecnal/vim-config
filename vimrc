@@ -11,6 +11,8 @@ set undolevels=100
 syntax on
 
 set smarttab
+set smartindent
+set magic
 set number
 set nocompatible
 
@@ -33,6 +35,7 @@ set autochdir
 set formatoptions=tcroql1 nojoinspaces
 set cinoptions=>1s,n0,f0,{1s,}0,^-1s,:1s,g0,+1s,(0
 set showmatch matchtime=3
+set matchpairs+=<:>
 set showfulltag virtualedit=block
 set splitbelow splitright
 set incsearch noignorecase

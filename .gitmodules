@@ -28,3 +28,6 @@
 [submodule "bundle/aldmeris"]
 	path = bundle/aldmeris
 	url = https://github.com/veloce/vim-aldmeris.git
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = https://github.com/tpope/vim-surround.git
