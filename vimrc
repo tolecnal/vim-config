@@ -93,6 +93,7 @@ if has("autocmd")
   au FileType make setlocal noet ts=4 sw=4 sts=4
   au FileType eruby set ai et sw=4 sts=4 expandtab fo+=t
   au FileType javascript set ai et sw=4 sts=4 expandtab
+  au FileType vhdl set ai ts=4 sw=4 sts=4 noexpandtab
   
   augroup gzip
     " Remove all gzip autocommands
