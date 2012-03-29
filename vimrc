@@ -149,3 +149,10 @@ nmap <leader>g :GundoToggle<CR>
 
 " binding for editing vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" writing to protected file using :Sw
+function! SudoWrite()
+  w !sudo tee % > /dev/null
+endfunction
+
+command! -nargs=0 Sw call SudoWrite()
