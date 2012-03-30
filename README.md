@@ -41,8 +41,8 @@ git submodule update
 * \s - togle spell checking
 * \v - edit your vimrc in new tab, config is reloaded on save
 * :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
-* <C-Up> - move your code one line up
-* <C-Down> - move your code one line down
+* <C-k> - move your code one line up
+* <C-j> - move your code one line down
 
 ##Features
 * editing gziped files
