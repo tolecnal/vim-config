@@ -10,17 +10,18 @@ set undolevels=100
 
 syntax on
 
+set nocompatible
+
 set smarttab
 set smartindent
 set magic
 set number
-set nocompatible
 
 set hidden
 
 set backspace=indent,eol,start
 set path=.,/usr/include,/usr/local/include
-set viminfo='20,\"50,h history=50
+set viminfo='20,\"50,h
 
 set ruler
 
@@ -41,6 +42,15 @@ set splitbelow splitright
 set incsearch noignorecase
 set shortmess+=I showcmd
 
+" backups & history
+set nobackup
+set nowritebackup
+set noswapfile
+set history=1000
+
+" remap leader key
+let mapleader=","
+
 " resizing splits
 if bufwinnr(1)
   map <leader>. <C-W>+
@@ -54,6 +64,35 @@ nmap <silent> <leader>s :set spell!<CR>
 
 " highlighting search matches
 nmap <silent> <leader>h :set hlsearch!<CR>
+
+" show invisibles
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
+
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+"  Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
+" Gundo - visualizing redo/undo changes
+nmap <leader>g :GundoToggle<CR>
+
+" binding for editing vimrc
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" allow moving with ctrl+hjkl in insert mode
+inoremap <c-j> <Down>
+inoremap <c-k> <Up>
+inoremap <c-h> <Left>
+inoremap <c-l> <Right>
+
+" writing to protected file using :Sw
+function! SudoWrite()
+  w !sudo tee % > /dev/null
+endfunction
+command! -nargs=0 Sw call SudoWrite()
 
 " setting indent and tap expanding depending on file type
 filetype indent on
@@ -121,6 +160,9 @@ if has("autocmd")
   " autoreload vimrc
   au bufwritepost .vimrc source $MYVIMRC
   au bufwritepost _vimrc source $MYVIMRC
+
+  " detect additional file types
+  au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,config.ru} set ft=ruby
 endif
 
 " minimizing GUI
@@ -133,26 +175,12 @@ if has('gui_running')
   set gfn=Droid\ Sans\ Mono\ Dotted\ 10
 endif
 
-" show invisibles
-nmap <leader>l :set list!<CR>
-set listchars=tab:▸\ ,eol:¬
-
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-"  Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
-
-" Gundo - visualizing redo/undo changes
-nmap <leader>g :GundoToggle<CR>
-
-" binding for editing vimrc
-nmap <leader>v :tabedit $MYVIMRC<CR>
-
-" writing to protected file using :Sw
-function! SudoWrite()
-  w !sudo tee % > /dev/null
-endfunction
-
-command! -nargs=0 Sw call SudoWrite()
+" disable arrow keys
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
