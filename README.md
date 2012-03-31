@@ -27,7 +27,11 @@ git submodule update
 * [supertab](http://www.vim.org/scripts/script.php?script_id=1643)
 * [surround](https://github.com/tpope/vim-surround)
 * [commentary](https://github.com/tpope/vim-commentary)
+* [ctrlp](https://github.com/kien/ctrlp.vim)
 * [pathogen](https://github.com/tpope/vim-pathogen)
+* [repeat](https://github.com/tpope/vim-repeat)
+* [markdown](https://github.com/tpope/vim-markdown)
+* [scala](https://github.com/derekwyatt/vim-scala)
 
 ##Theme
 [railscasts](http://railscasts.com/about) with transparent background
@@ -43,6 +47,7 @@ git submodule update
 * :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
 * <C-k> - move your code one line up
 * <C-j> - move your code one line down
+* <C-p> - file search/open (ctrlp plugin)
 
 ##Features
 * editing gziped files
