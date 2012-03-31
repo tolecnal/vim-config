@@ -90,7 +90,7 @@ inoremap <c-l> <Right>
 
 " writing to protected file using :Sw
 function! SudoWrite()
-  w !sudo dd of=% > /dev/null
+  w !sudo dd of=%
   e!
 endfunction
 command! -nargs=0 Sw call SudoWrite()
