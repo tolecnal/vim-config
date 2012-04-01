@@ -48,6 +48,10 @@ set nowritebackup
 set noswapfile
 set history=1000
 
+" when changing (c command) put $
+" on word bondary and keep it visible
+set cpoptions+=$
+
 " remap leader key
 let mapleader=","
 
