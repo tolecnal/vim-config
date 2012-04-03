@@ -21,7 +21,6 @@ set hidden
 
 set backspace=indent,eol,start
 set path=.,/usr/include,/usr/local/include
-set viminfo='20,\"50,h
 
 set ruler
 
@@ -32,9 +31,7 @@ set hlsearch
 
 set nowrap linebreak nolist
 
-set autochdir
-set formatoptions=tcroql1 nojoinspaces
-set cinoptions=>1s,n0,f0,{1s,}0,^-1s,:1s,g0,+1s,(0
+set nojoinspaces
 set showmatch matchtime=3
 set matchpairs+=<:>
 set showfulltag virtualedit=block
