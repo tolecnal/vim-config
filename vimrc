@@ -2,7 +2,7 @@
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
-colorscheme aldmeris
+colorscheme xoria256
 
 set fileencoding=utf-8
 
@@ -48,6 +48,9 @@ set history=1000
 " when changing (c command) put $
 " on word bondary and keep it visible
 set cpoptions+=$
+
+" wild menu helping when tabing through matches
+set wildmenu
 
 " remap leader key
 let mapleader=","
