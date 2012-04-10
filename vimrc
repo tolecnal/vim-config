@@ -18,8 +18,8 @@ set magic
 set number
 
 set hidden
-
 set backspace=indent,eol,start
+
 set path=.,/usr/include,/usr/local/include
 
 set ruler
@@ -51,6 +51,10 @@ set cpoptions+=$
 
 " wild menu helping when tabing through matches
 set wildmenu
+
+" When the page starts to scroll, keep the cursor 8 lines from
+" the top and 8 lines from the bottom
+set scrolloff=8
 
 " resizing splits
 if bufwinnr(1)
