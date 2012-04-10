@@ -52,9 +52,6 @@ set cpoptions+=$
 " wild menu helping when tabing through matches
 set wildmenu
 
-" remap leader key
-let mapleader=","
-
 " resizing splits
 if bufwinnr(1)
   map <leader>. <C-W>+
@@ -85,6 +82,9 @@ nmap <leader>g :GundoToggle<CR>
 
 " binding for editing vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" change to directory of opened file
+nmap <silent> <leader>cd :lcd %:h<CR>
 
 " allow moving with ctrl+hjkl in insert mode
 inoremap <c-j> <Down>
@@ -119,6 +119,7 @@ if has("autocmd")
   au FileType python set ai et sw=4 sts=4 expandtab tw=78
   au FileType ruby set ai et sw=2 sts=2 expandtab tw=78
   au FileType perl set ai et sw=4 sts=4 expandtab tw=78 cindent
+  au FileType haskell set ai et sw=4 sts=4 expandtab
   au FileType awk set ai et sw=4 sts=4 noexpandtab tw=78
   au FileType tex set ai et sw=2 sts=2 noexpandtab tw=78 fo+=t
   au FileType cpp set cindent tw=79
