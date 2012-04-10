@@ -50,6 +50,7 @@ git submodule update
 * <C-k> - move your code one line up
 * <C-j> - move your code one line down
 * <C-p> - file search/open (ctrlp plugin)
+* \cd - :lcd %:h
 
 ##Features
 * editing gziped files
