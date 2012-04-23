@@ -144,6 +144,11 @@ if has("autocmd")
   au FileType javascript set ai et sw=4 sts=4 expandtab
   au FileType vhdl set ai ts=4 sw=4 sts=4 noexpandtab
   
+  augroup filetypedetect
+    " Mail
+    autocmd BufRead,BufNewFile *mutt-* set filetype=mail wrap tw=72
+  augroup END
+
   augroup gzip
     " Remove all gzip autocommands
     au!
