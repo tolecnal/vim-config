@@ -51,6 +51,8 @@ git submodule update
 * <C-j> - move your code one line down
 * <C-p> - file search/open (ctrlp plugin)
 * \cd - :lcd %:h
+* <nr>zy - save view number <nr>
+* <nr>zp - load view numer <nr>
 
 ##Features
 * editing gziped files
