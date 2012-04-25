@@ -194,3 +194,12 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+
+" view yanking/pasting (number specified by count, defaults to 1)
+" use in normal mode:
+" zy <some folding> 5zy zp
+noremap <silent> zy :<C-u>exe ":mkview ".v:count1<CR>
+noremap <silent> zp :<C-u>exe ":loadview ".v:count1<CR>
+
+
