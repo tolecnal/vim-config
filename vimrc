@@ -143,10 +143,11 @@ if has("autocmd")
   au FileType eruby set ai et sw=4 sts=4 expandtab fo+=t
   au FileType javascript set ai et sw=4 sts=4 expandtab
   au FileType vhdl set ai ts=4 sw=4 sts=4 noexpandtab
+  au FileType gitcommit set wrap tw=72 fo+=t
   
   augroup filetypedetect
     " Mail
-    autocmd BufRead,BufNewFile *mutt-* set filetype=mail wrap tw=72
+    autocmd BufRead,BufNewFile *mutt-* set filetype=mail wrap tw=72 fo+=t
   augroup END
 
   augroup gzip
