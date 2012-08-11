@@ -1,3 +1,6 @@
+" prepathogen settings
+let g:EasyMotion_leader_key="<Leader>m"
+
 " pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
