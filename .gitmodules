@@ -10,12 +10,6 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/color-picker"]
-	path = bundle/color-picker
-	url = https://github.com/vim-scripts/VIM-Color-Picker.git
-[submodule "bundle/xmledit"]
-	path = bundle/xmledit
-	url = https://github.com/sukima/xmledit.git
 [submodule "bundle/pathogen"]
 	path = bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
@@ -61,3 +55,6 @@
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule "bundle/markmultiple"]
+	path = bundle/markmultiple
+	url = https://github.com/adinapoli/vim-markmultiple.git
