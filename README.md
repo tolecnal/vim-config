@@ -1,4 +1,4 @@
-# Vim awesome configuration
+# Vim Awesome Configuration
 
 ## Requirements
 * Vim (of course)
@@ -18,6 +18,7 @@ git submodule update
 ##Plugins
 * [commentary](https://github.com/tpope/vim-commentary)
 * [ctrlp](https://github.com/kien/ctrlp.vim)
+* [easymotion](https://github.com/Lokaltog/vim-easymotion)
 * [fugitive](https://github.com/tpope/vim-fugitive)
 * [gundo](https://github.com/sjl/gundo.vim)
 * [hexhighlight](http://www.vim.org/scripts/script.php?script_id=2937)
@@ -27,6 +28,7 @@ git submodule update
 * [pathogen](https://github.com/tpope/vim-pathogen)
 * [repeat](https://github.com/tpope/vim-repeat)
 * [scala](https://github.com/derekwyatt/vim-scala)
+* [slim](https://github.com/bbommarito/vim-slim)
 * [snipmate](https://github.com/garbas/vim-snipmate)
 * [surround](https://github.com/tpope/vim-surround)
 * [tabular](https://github.com/godlygeek/tabular)
@@ -39,7 +41,8 @@ git submodule update
 * \l - toggle show invisibles
 * \h - toggle highligh search matches
 * \g - gundo toggle
-* \. \, \[ \] - resize splits
+* \ + \.,\[\] - resize splits
+* ctrl + hjkl - move in insert mode
 * \s - togle spell checking
 * \v - edit your vimrc in new tab, config is reloaded on save
 * :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
@@ -47,15 +50,20 @@ git submodule update
 * <C-j> - move your code one line down
 * <C-p> - file search/open (ctrlp plugin)
 * \cd - :lcd %:h
-* <nr>zy - save view number <nr>
-* <nr>zp - load view numer <nr>
+* <nr>zy - save view number <nr>, think of this as fold yank
+* <nr>zp - load view number <nr>, think of this as fold paste
 * \m<move> - easy motion trigger
+* \p - toggle paste mode
+* \n - toggle between normal/relative line numbering
+* Sw - sudo write
 
 ##Features
+* [pathogen](https://github.com/tpope/vim-pathogen) enabled
+* lot of useful sets (wildmenu, encoding, nocompatible, tabs, wraps, etc.)
 * editing gziped files
 * minimalized GUI
 * nice invisibles
 
-
 ##Thanks
-Drew for his [vimcasts](http://vimcasts.org/)
+Drew for his [Vimcasts](http://vimcasts.org/)
+Derek Wyatt for his [posts on Vim](http://www.derekwyatt.org/vim/)

@@ -49,7 +49,7 @@ set noswapfile
 set history=1000
 
 " when changing (c command) put $
-" on word bondary and keep it visible
+" on word boundary and keep it visible
 set cpoptions+=$
 
 " wild menu helping when tabing through matches
@@ -58,6 +58,13 @@ set wildmenu
 " When the page starts to scroll, keep the cursor 8 lines from
 " the top and 8 lines from the bottom
 set scrolloff=8
+
+" setting indent and tab expanding depending on file type
+filetype indent on
+filetype plugin on
+
+" no automatic text wrapping for most formats
+set fo-=t
 
 " resizing splits
 if bufwinnr(1)
@@ -99,6 +106,35 @@ inoremap <c-k> <Up>
 inoremap <c-h> <Left>
 inoremap <c-l> <Right>
 
+" disable arrow keys
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" view yanking/pasting (number specified by count, defaults to 1)
+" use in normal mode:
+" zy <some folding> 5zy zp
+noremap <silent> zy :<C-u>exe ":mkview ".v:count1<CR>
+noremap <silent> zp :<C-u>exe ":loadview ".v:count1<CR>
+
+" toggle relative/normal line numbering
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+nmap <leader>n :call NumberToggle()<CR>
+
+" switch paste/nopaste mode
+nmap <leader>p :set paste!<CR>:set paste?<CR>
+
 " writing to protected file using :Sw
 function! SudoWrite()
   w !sudo dd of=%
@@ -106,14 +142,7 @@ function! SudoWrite()
 endfunction
 command! -nargs=0 Sw call SudoWrite()
 
-" setting indent and tap expanding depending on file type
-filetype indent on
-filetype plugin on
-
-" no automatic text wrapping for most formats
-set fo-=t
-
-"Filemanager options
+"File Manager options
 let g:netrw_liststyle=3 " Use tree-mode as default view
 let g:netrw_browse_split=4 " Open file in previous buffer
 let g:netrw_preview=1 " preview window shown in a vertically split
@@ -194,22 +223,6 @@ if has('gui_running')
   set gfn=Droid\ Sans\ Mono\ Dotted\ 8
 endif
 
-" disable arrow keys
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-
-
-" view yanking/pasting (number specified by count, defaults to 1)
-" use in normal mode:
-" zy <some folding> 5zy zp
-noremap <silent> zy :<C-u>exe ":mkview ".v:count1<CR>
-noremap <silent> zp :<C-u>exe ":loadview ".v:count1<CR>
 
 " eclim java
 nmap <leader>ji :JavaImport<CR>
