@@ -211,4 +211,9 @@ noremap <Right> <NOP>
 noremap <silent> zy :<C-u>exe ":mkview ".v:count1<CR>
 noremap <silent> zp :<C-u>exe ":loadview ".v:count1<CR>
 
-
+" eclim java
+nmap <leader>ji :JavaImport<CR>
+nmap <leader>jI :JavaImportMissing<CR>
+nmap <leader>jr :Java<CR>
+nmap <leader>jd :JavaDocSearch<CR>
+nmap <leader>eo :ProjectOpen<CR>
