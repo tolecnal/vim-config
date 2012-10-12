@@ -116,6 +116,10 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" change behaviour of c-n c-p to more common-sense in command line
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
 " view yanking/pasting (number specified by count, defaults to 1)
 " use in normal mode:
 " zy <some folding> 5zy zp
