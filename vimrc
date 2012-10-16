@@ -13,8 +13,6 @@ set undolevels=100
 
 syntax on
 
-set nocompatible
-
 set smarttab
 set smartindent
 set magic
