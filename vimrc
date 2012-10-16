@@ -15,25 +15,26 @@ syntax on
 
 set smarttab
 set smartindent
+set autoindent
+set backspace=indent,eol,start
+
 set magic
 set number
+set cursorline
+set ruler
 
+" switch between buffers without saving
 set hidden
-set backspace=indent,eol,start
 
 set path=.,/usr/include,/usr/local/include
 
-set ruler
-
-set cursorline
 set visualbell
-set autoindent
 set hlsearch
 
 set nowrap linebreak nolist
 
-set nojoinspaces
-set showmatch matchtime=3
+set nojoinspaces " only one space when joinning
+set showmatch matchtime=3 " matching bracket
 set matchpairs+=<:>
 set showfulltag virtualedit=block
 set splitbelow splitright
@@ -63,14 +64,6 @@ filetype plugin on
 
 " no automatic text wrapping for most formats
 set fo-=t
-
-" resizing splits
-if bufwinnr(1)
-  map <leader>. <C-W>+
-  map <leader>, <C-W>-
-  map <leader>[ <C-W>< 
-  map <leader>] <C-W>> 
-endif
 
 " spell checking
 nmap <silent> <leader>s :set spell!<CR>
@@ -171,7 +164,7 @@ if has("autocmd")
   au FileType babe set ai et sw=2 sts=2 noexpandtab
   au FileType xml set ai et sw=2 sts=2 noexpandtab fo+=t
   au FileType sgml set ai et sw=2 sts=2 noexpandtab fo+=t
-  au FileType html,php set matchpairs+=<:> indentexpr= autoindent fo+=t
+  au FileType html,php set indentexpr= autoindent fo+=t
   au FileType css,scss set ai sw=4 sts=4 expandtab indentexpr=
   au FileType make setlocal noet ts=4 sw=4 sts=4
   au FileType eruby set ai et sw=4 sts=4 expandtab fo+=t
