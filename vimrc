@@ -137,7 +137,9 @@ function! SudoWrite()
 endfunction
 command! -nargs=0 Sw call SudoWrite()
 
-"File Manager options
+" %% will expand to current dir in command mode
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
+" File Manager options
 let g:netrw_liststyle=3 " Use tree-mode as default view
 let g:netrw_browse_split=4 " Open file in previous buffer
 let g:netrw_preview=1 " preview window shown in a vertically split

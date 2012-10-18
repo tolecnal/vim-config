@@ -56,6 +56,7 @@ git submodule update
 * \p - toggle paste mode
 * \n - toggle between normal/relative line numbering
 * Sw - sudo write
+* :&& - && expands to current file's path in ex mode
 
 ##Features
 * [pathogen](https://github.com/tpope/vim-pathogen) enabled
