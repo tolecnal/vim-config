@@ -154,7 +154,7 @@ if has("autocmd")
   au FileType perl set ai et sw=4 sts=4 expandtab tw=78 cindent
   au FileType haskell set ai et sw=4 sts=4 expandtab
   au FileType awk set ai et sw=4 sts=4 noexpandtab tw=78
-  au FileType tex set ai et sw=2 sts=2 noexpandtab tw=78 fo+=t
+  au FileType tex set ai sw=2 sts=2 noexpandtab tw=78 fo+=t
   au FileType cpp set cindent tw=79
   au FileType php set ai et sw=4 sts=4 ts=4 cindent tw=78
   au FileType html set ai et sw=2 sts=2 expandtab tw=78
