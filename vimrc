@@ -147,31 +147,22 @@ let g:netrw_preview=1 " preview window shown in a vertically split
 if has("autocmd")
   " indent per type
   au FileType c set cindent tw=79
-  au FileType matlab set ai et sw=2 sts=2 noexpandtab tw=78
-  au FileType java set ai et sw=4 sts=4 expandtab cindent tw=78
-  au FileType python set ai et sw=4 sts=4 expandtab tw=78
-  au FileType ruby set ai et sw=2 sts=2 expandtab tw=78
-  au FileType perl set ai et sw=4 sts=4 expandtab tw=78 cindent
-  au FileType haskell set ai et sw=4 sts=4 expandtab
-  au FileType awk set ai et sw=4 sts=4 noexpandtab tw=78
-  au FileType tex set ai sw=2 sts=2 noexpandtab tw=78 fo+=t
   au FileType cpp set cindent tw=79
-  au FileType php set ai et sw=4 sts=4 ts=4 cindent tw=78
-  au FileType html set ai et sw=2 sts=2 expandtab tw=78
-  au FileType sh set ai et sw=4 sts=4 noexpandtab
-  au FileType scheme set ai et sw=1 sts=1 noexpandtab tw=78 lisp
-  au FileType lex set ai et sw=2 sts=2 expandtab
-  au FileType yacc set ai et sw=2 sts=2 noexpandtab
-  au FileType vim set ai et sw=2 sts=2 expandtab
-  au FileType babe set ai et sw=2 sts=2 noexpandtab
-  au FileType xml set ai et sw=2 sts=2 noexpandtab fo+=t
-  au FileType sgml set ai et sw=2 sts=2 noexpandtab fo+=t
-  au FileType html,php set indentexpr= autoindent fo+=t
-  au FileType css,scss set ai sw=4 sts=4 expandtab indentexpr=
-  au FileType make setlocal noet ts=4 sw=4 sts=4
-  au FileType eruby set ai et sw=4 sts=4 expandtab fo+=t
-  au FileType javascript set ai et sw=4 sts=4 expandtab
-  au FileType vhdl set ai ts=4 sw=4 sts=4 noexpandtab
+  au FileType java set ai sw=4 sts=4 expandtab cindent tw=78
+  au FileType python set ai sw=4 sts=4 expandtab tw=78
+  au FileType ruby set ai sw=2 sts=2 expandtab tw=78
+  au FileType perl set ai sw=4 sts=4 expandtab tw=78 cindent
+  au FileType awk set ai sw=4 sts=4 noexpandtab tw=78
+  au FileType tex set ai sw=2 sts=2 noexpandtab tw=78 fo+=t
+  au FileType html set ai sw=4 sts=4 expandtab tw=78
+  au FileType sh,zsh set ai sw=4 sts=4 noexpandtab
+  au FileType vim set ai sw=2 sts=2 expandtab
+  au FileType xml set ai sw=4 sts=4 noexpandtab fo+=t
+  au FileType css,scss set ai sw=4 sts=4 expandtab
+  au FileType make setlocal ts=4 sw=4 sts=4  noexpandtab
+  au FileType eruby set ai sw=4 sts=4 expandtab fo+=t
+  au FileType javascript set ai sw=4 sts=4 expandtab
+  au FileType coffee set ai sw=2 sts=2 expandtab
   au FileType gitcommit set wrap tw=72 fo+=t
   
   augroup filetypedetect
