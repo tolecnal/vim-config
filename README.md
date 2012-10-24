@@ -57,6 +57,11 @@ git submodule update
 * \n - toggle between normal/relative line numbering
 * Sw - sudo write
 
+##Motions
+* ae, ie - entire file
+* ai, ii - indented block
+* al, il - line
+
 ##Features
 * [pathogen](https://github.com/tpope/vim-pathogen) enabled
 * lot of useful sets (wildmenu, encoding, nocompatible, tabs, wraps, etc.)

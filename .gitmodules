@@ -18,13 +18,13 @@
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "bundle/scala"]
 	path = bundle/scala
-	url = https://github.com/derekwyatt/vim-scala
+	url = https://github.com/derekwyatt/vim-scala.git
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/repeat"]
 	path = bundle/repeat
-	url = https://github.com/tpope/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = https://github.com/garbas/vim-snipmate.git
@@ -58,3 +58,15 @@
 [submodule "bundle/markmultiple"]
 	path = bundle/markmultiple
 	url = https://github.com/adinapoli/vim-markmultiple.git
+[submodule "bundle/textobj-entire"]
+	path = bundle/textobj-entire
+	url = https://github.com/kana/vim-textobj-entire.git
+[submodule "bundle/textobj-line"]
+	path = bundle/textobj-line
+	url = https://github.com/kana/vim-textobj-line.git
+[submodule "bundle/textobj-indent"]
+	path = bundle/textobj-indent
+	url = https://github.com/kana/vim-textobj-indent.git
+[submodule "bundle/textobj-user"]
+	path = bundle/textobj-user
+	url = https://github.com/kana/vim-textobj-user.git
