@@ -153,7 +153,7 @@ if has("autocmd")
   au FileType ruby set ai sw=2 sts=2 expandtab tw=78
   au FileType perl set ai sw=4 sts=4 expandtab tw=78 cindent
   au FileType awk set ai sw=4 sts=4 noexpandtab tw=78
-  au FileType tex set ai sw=2 sts=2 noexpandtab tw=78 fo+=t
+  au FileType tex set ai sts=2 ts=2 noexpandtab tw=78 fo+=t
   au FileType html set ai sw=4 sts=4 expandtab tw=78
   au FileType sh,zsh set ai sw=4 sts=4 noexpandtab
   au FileType vim set ai sw=2 sts=2 expandtab

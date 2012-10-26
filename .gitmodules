@@ -58,12 +58,6 @@
 [submodule "bundle/markmultiple"]
 	path = bundle/markmultiple
 	url = https://github.com/adinapoli/vim-markmultiple.git
-[submodule "bundle/textobj-entire"]
-	path = bundle/textobj-entire
-	url = https://github.com/kana/vim-textobj-entire.git
-[submodule "bundle/textobj-line"]
-	path = bundle/textobj-line
-	url = https://github.com/kana/vim-textobj-line.git
 [submodule "bundle/textobj-indent"]
 	path = bundle/textobj-indent
 	url = https://github.com/kana/vim-textobj-indent.git

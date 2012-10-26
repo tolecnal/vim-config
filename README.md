@@ -33,6 +33,7 @@ git submodule update
 * [surround](https://github.com/tpope/vim-surround)
 * [tabular](https://github.com/godlygeek/tabular)
 * [unimpaired](https://github.com/tpope/vim-unimpaired)
+* [textobj-indent](https://github.com/kana/vim-textobj-indent)
 
 ##Theme
 [xoria256](http://www.vim.org/scripts/script.php?script_id=2140)
@@ -59,9 +60,7 @@ git submodule update
 * :&& - && expands to current file's path in ex mode
 
 ##Motions
-* ae, ie - entire file
 * ai, ii - indented block
-* al, il - line
 
 ##Features
 * [pathogen](https://github.com/tpope/vim-pathogen) enabled
