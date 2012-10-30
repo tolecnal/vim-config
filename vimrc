@@ -65,6 +65,9 @@ filetype plugin on
 " no automatic text wrapping for most formats
 set fo-=t
 
+" global textwidth
+set textwidth=78
+
 " spell checking
 nmap <silent> <leader>s :set spell!<CR>
 
@@ -75,10 +78,9 @@ nmap <silent> <leader>h :set hlsearch!<CR>
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
 
-" Bubble single lines
+" Unimpaired text bubbling
 nmap <C-k> [e
 nmap <C-j> ]e
-"  Bubble multiple lines
 vmap <C-k> [egv
 vmap <C-j> ]egv
 
@@ -91,21 +93,21 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 " change to directory of opened file
 nmap <silent> <leader>cd :lcd %:h<CR>
 
+" toggle color column
+function! ColorColumnToggle()
+  if (&colorcolumn == '+1')
+    set colorcolumn=
+  else
+    set colorcolumn=+1
+  endif
+endfunc
+nmap <silent> <leader>cc :call ColorColumnToggle()<CR>
+
 " allow moving with ctrl+hjkl in insert mode
 inoremap <c-j> <Down>
 inoremap <c-k> <Up>
 inoremap <c-h> <Left>
 inoremap <c-l> <Right>
-
-" disable arrow keys
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
 
 " change behaviour of c-n c-p to more common-sense in command line
 cnoremap <C-p> <Up>
@@ -139,35 +141,40 @@ command! -nargs=0 Sw call SudoWrite()
 
 " %% will expand to current dir in command mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
+
 " File Manager options
 let g:netrw_liststyle=3 " Use tree-mode as default view
 let g:netrw_browse_split=4 " Open file in previous buffer
 let g:netrw_preview=1 " preview window shown in a vertically split
 
 if has("autocmd")
-  " indent per type
-  au FileType c set cindent tw=79
-  au FileType cpp set cindent tw=79
-  au FileType java set ai sw=4 sts=4 expandtab cindent tw=78
-  au FileType python set ai sw=4 sts=4 expandtab tw=78
-  au FileType ruby set ai sw=2 sts=2 expandtab tw=78
-  au FileType perl set ai sw=4 sts=4 expandtab tw=78 cindent
-  au FileType awk set ai sw=4 sts=4 noexpandtab tw=78
-  au FileType tex set ai sts=2 ts=2 noexpandtab tw=78 fo+=t
-  au FileType html set ai sw=4 sts=4 expandtab tw=78
-  au FileType sh,zsh set ai sw=4 sts=4 noexpandtab
-  au FileType vim set ai sw=2 sts=2 expandtab
-  au FileType xml set ai sw=4 sts=4 noexpandtab fo+=t
-  au FileType css,scss set ai sw=4 sts=4 expandtab
-  au FileType make setlocal ts=4 sw=4 sts=4  noexpandtab
-  au FileType eruby set ai sw=4 sts=4 expandtab fo+=t
-  au FileType javascript set ai sw=4 sts=4 expandtab
-  au FileType coffee set ai sw=2 sts=2 expandtab
-  au FileType gitcommit set wrap tw=72 fo+=t
+  au FileType c            setl cindent   tw=79
+  au FileType cpp          setl cindent   tw=79
+  au FileType java         setl ai ts=4 sw=4 sts=4   expandtab cindent
+  au FileType perl         setl ai ts=4 sw=4 sts=4   expandtab cindent
+  au FileType python       setl ai ts=4 sw=4 sts=4   expandtab
+  au FileType ruby         setl ai ts=2 sw=2 sts=2   expandtab
+  au FileType awk          setl ai ts=4 sw=4 sts=4 noexpandtab
+  au FileType html         setl ai ts=4 sw=4 sts=4   expandtab
+  au FileType sh,zsh       setl ai ts=4 sw=4 sts=4 noexpandtab
+  au FileType vim          setl ai ts=2 sw=2 sts=2   expandtab
+  au FileType xml          setl ai ts=4 sw=4 sts=4 noexpandtab
+  au FileType css,scss     setl ai ts=4 sw=4 sts=4   expandtab
+  au FileType make         setl ai ts=4 sw=4 sts=4 noexpandtab
+  au FileType eruby        setl ai ts=4 sw=4 sts=4   expandtab
+  au FileType javascript   setl ai ts=4 sw=4 sts=4   expandtab
+  au FileType coffee       setl ai ts=2 sw=2 sts=2   expandtab
+  au FileType tex,plaintex setl ai ts=2 sw=2 sts=2 noexpandtab fo+=t
+
+  au FileType markdown     setl tw=77 fo+=t
+  au FileType gitcommit    setl tw=72 fo+=t
   
+  " autoreload vimrc
+  au BufWritePost .vimrc source $MYVIMRC
+  au BufWritePost _vimrc source $MYVIMRC
+
   augroup filetypedetect
-    " Mail
-    autocmd BufRead,BufNewFile *mutt-* set filetype=mail wrap tw=72 fo+=t
+    au BufRead,BufNewFile *mutt-* setl filetype=mail tw=72 fo+=t
   augroup END
 
   augroup gzip
@@ -175,30 +182,19 @@ if has("autocmd")
     au!
 
     " Enable editing of gzipped files
-    "  read:  set binary mode before reading the file
-    "    uncompress text in buffer after reading
-    "  write:  compress file after writing
-    "  append:  uncompress file, append, compress file
-    au BufReadPre,FileReadPre *.gz set bin
-    au BufReadPost,FileReadPost *.gz let ch_save = &ch|set ch=2
-    au BufReadPost,FileReadPost *.gz '[,']!gunzip
-    au BufReadPost,FileReadPost *.gz set nobin
-    au BufReadPost,FileReadPost *.gz let &ch = ch_save|unlet ch_save
-    au BufReadPost,FileReadPost *.gz execute ":doautocmd BufReadPost " . expand("%:r")
+    au BufReadPre,FileReadPre     *.gz setl bin
+    au BufReadPost,FileReadPost   *.gz let ch_save = &ch|setl ch=2
+    au BufReadPost,FileReadPost   *.gz '[,']!gunzip
+    au BufReadPost,FileReadPost   *.gz setl nobin
+    au BufReadPost,FileReadPost   *.gz let &ch = ch_save|unlet ch_save
+    au BufReadPost,FileReadPost   *.gz execute ":doautocmd BufReadPost " . expand("%:r")
     au BufWritePost,FileWritePost *.gz !mv <afile> <afile>:r
     au BufWritePost,FileWritePost *.gz !gzip <afile>:r
-    au FileAppendPre            *.gz !gunzip <afile>
-    au FileAppendPre            *.gz !mv <afile>:r <afile>
-    au FileAppendPost           *.gz !mv <afile> <afile>:r
-    au FileAppendPost           *.gz !gzip <afile>:r
+    au FileAppendPre              *.gz !gunzip <afile>
+    au FileAppendPre              *.gz !mv <afile>:r <afile>
+    au FileAppendPost             *.gz !mv <afile> <afile>:r
+    au FileAppendPost             *.gz !gzip <afile>:r
   augroup END
-  
-  " autoreload vimrc
-  au bufwritepost .vimrc source $MYVIMRC
-  au bufwritepost _vimrc source $MYVIMRC
-
-  " detect additional file types
-  au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,config.ru} set ft=ruby
 endif
 
 " minimizing GUI

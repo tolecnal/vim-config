@@ -4,7 +4,7 @@
 * Vim (of course)
 * Python support
 
-##Installation
+## Installation
 It's as simple as that:
 
 ```bash
@@ -34,41 +34,44 @@ git submodule update
 * [tabular](https://github.com/godlygeek/tabular)
 * [unimpaired](https://github.com/tpope/vim-unimpaired)
 * [textobj-indent](https://github.com/kana/vim-textobj-indent)
+* [rails](https://github.com/tpope/vim-rails)
+* [ruby](https://github.com/vim-ruby/vim-ruby)
+* [coffee](https://github.com/kchmck/vim-coffee-script)
+* [bundler](https://github.com/tpope/vim-bundler)
 
 ##Theme
 [xoria256](http://www.vim.org/scripts/script.php?script_id=2140)
 
-##Bindings
+## Bindings
 * \l - toggle show invisibles
 * \h - toggle highligh search matches
 * \g - gundo toggle
-* \ + \.,\[\] - resize splits
-* ctrl + hjkl - move in insert mode
+* \cc - togle color column at textwidth+1
+* \cd - :lcd %:h
 * \s - togle spell checking
 * \v - edit your vimrc in new tab, config is reloaded on save
-* :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
-* <C-k> - move your code one line up
-* <C-j> - move your code one line down
-* <C-p> - file search/open (ctrlp plugin)
-* \cd - :lcd %:h
-* <nr>zy - save view number <nr>, think of this as fold yank
-* <nr>zp - load view number <nr>, think of this as fold paste
 * \m<move> - easy motion trigger
 * \p - toggle paste mode
 * \n - toggle between normal/relative line numbering
-* Sw - sudo write
+* ctrl + hjkl - move in insert mode
+* <C-k> - move your code one line up
+* <C-j> - move your code one line down
+* <C-p> - file search/open (ctrlp plugin)
+* <nr>zy - save view number <nr>, think of this as fold yank
+* <nr>zp - load view number <nr>, think of this as fold paste
+* :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
 * :&& - && expands to current file's path in ex mode
 
-##Motions
+## Motions
 * ai, ii - indented block
 
-##Features
+## Features
 * [pathogen](https://github.com/tpope/vim-pathogen) enabled
 * lot of useful sets (wildmenu, encoding, nocompatible, tabs, wraps, etc.)
 * editing gziped files
 * minimalized GUI
 * nice invisibles
 
-##Thanks
+## Thanks
 Drew for his [Vimcasts](http://vimcasts.org/)
 Derek Wyatt for his [posts on Vim](http://www.derekwyatt.org/vim/)
