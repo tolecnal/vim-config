@@ -18,7 +18,6 @@ git submodule update
 ##Plugins
 * [commentary](https://github.com/tpope/vim-commentary)
 * [ctrlp](https://github.com/kien/ctrlp.vim)
-* [easymotion](https://github.com/Lokaltog/vim-easymotion)
 * [fugitive](https://github.com/tpope/vim-fugitive)
 * [gundo](https://github.com/sjl/gundo.vim)
 * [hexhighlight](http://www.vim.org/scripts/script.php?script_id=2937)
@@ -28,7 +27,6 @@ git submodule update
 * [pathogen](https://github.com/tpope/vim-pathogen)
 * [repeat](https://github.com/tpope/vim-repeat)
 * [scala](https://github.com/derekwyatt/vim-scala)
-* [slim](https://github.com/bbommarito/vim-slim)
 * [snipmate](https://github.com/garbas/vim-snipmate)
 * [surround](https://github.com/tpope/vim-surround)
 * [tabular](https://github.com/godlygeek/tabular)
@@ -50,7 +48,6 @@ git submodule update
 * \cd - :lcd %:h
 * \s - togle spell checking
 * \v - edit your vimrc in new tab, config is reloaded on save
-* \m<move> - easy motion trigger
 * \p - toggle paste mode
 * \n - toggle between normal/relative line numbering
 * ctrl + hjkl - move in insert mode

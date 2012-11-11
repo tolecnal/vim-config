@@ -49,12 +49,6 @@
 [submodule "bundle/xoria256"]
 	path = bundle/xoria256
 	url = https://github.com/vim-scripts/xoria256.vim.git
-[submodule "bundle/slim"]
-	path = bundle/slim
-	url = https://github.com/bbommarito/vim-slim.git
-[submodule "bundle/easymotion"]
-	path = bundle/easymotion
-	url = https://github.com/Lokaltog/vim-easymotion.git
 [submodule "bundle/markmultiple"]
 	path = bundle/markmultiple
 	url = https://github.com/adinapoli/vim-markmultiple.git
