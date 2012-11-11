@@ -103,12 +103,6 @@ function! ColorColumnToggle()
 endfunc
 nmap <silent> <leader>cc :call ColorColumnToggle()<CR>
 
-" allow moving with ctrl+hjkl in insert mode
-inoremap <c-j> <Down>
-inoremap <c-k> <Up>
-inoremap <c-h> <Left>
-inoremap <c-l> <Right>
-
 " change behaviour of c-n c-p to more common-sense in command line
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
