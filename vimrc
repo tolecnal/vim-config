@@ -139,6 +139,9 @@ let g:netrw_browse_split=4 " Open file in previous buffer
 let g:netrw_preview=1 " preview window shown in a vertically split
 
 if has("autocmd")
+  " jump to last know position in the file
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
   au FileType c            setl cindent   tw=79
   au FileType cpp          setl cindent   tw=79
   au FileType java         setl ai ts=4 sw=4 sts=4   expandtab cindent
