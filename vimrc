@@ -65,6 +65,9 @@ set fo-=t
 " global textwidth
 set textwidth=78
 
+" turn off mark multiple and lean after it
+vmap <silent> <C-m> :call MarkMultipleClean()<CR>
+
 " spell checking
 nmap <silent> <leader>s :set spell!<CR>
 

@@ -51,6 +51,9 @@ git submodule update
 * \p - toggle paste mode
 * \n - toggle between normal/relative line numbering
 * ctrl + hjkl - move in insert mode
+* <C-n> - start mark multiple (marks occurences which you can then edit at
+  one)
+* <C-m> - from visual, clean after mark multiple
 * <C-k> - move your code one line up
 * <C-j> - move your code one line down
 * <C-p> - file search/open (ctrlp plugin)
