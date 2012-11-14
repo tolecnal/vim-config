@@ -32,10 +32,11 @@ git submodule update
 * [tabular](https://github.com/godlygeek/tabular)
 * [unimpaired](https://github.com/tpope/vim-unimpaired)
 * [textobj-indent](https://github.com/kana/vim-textobj-indent)
-* [rails](https://github.com/tpope/vim-rails)
 * [ruby](https://github.com/vim-ruby/vim-ruby)
 * [coffee](https://github.com/kchmck/vim-coffee-script)
 * [bundler](https://github.com/tpope/vim-bundler)
+* [vroom](https://github.com/skalnik/vim-vroom)
+
 
 ##Theme
 [xoria256](http://www.vim.org/scripts/script.php?script_id=2140)
@@ -57,6 +58,8 @@ git submodule update
 * <C-k> - move your code one line up
 * <C-j> - move your code one line down
 * <C-p> - file search/open (ctrlp plugin)
+* \r - run current/last test file
+* \R - run nearest/last neaerest test
 * <nr>zy - save view number <nr>, think of this as fold yank
 * <nr>zp - load view number <nr>, think of this as fold paste
 * :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
