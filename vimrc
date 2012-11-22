@@ -211,3 +211,12 @@ nmap <leader>jI :JavaImportMissing<CR>
 nmap <leader>jr :Java<CR>
 nmap <leader>jd :JavaDocSearch<CR>
 nmap <leader>eo :ProjectOpen<CR>
+
+
+" Auto window resizing
+" Nasty Hack: height must be bigger than minheight on setting.
+" Fails when huge at fist.
+set winwidth=84
+set winheight=10
+set winminheight=10
+set winheight=999
