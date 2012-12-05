@@ -49,19 +49,17 @@ git submodule update
 * \cd - :lcd %:h
 * \s - togle spell checking
 * \v - edit your vimrc in new tab, config is reloaded on save
-* \p - toggle paste mode
 * \n - toggle between normal/relative line numbering
-* ctrl + hjkl - move in insert mode
-* <C-n> - start mark multiple (marks occurences which you can then edit at
+* &lt;C-n&gt; - start mark multiple (marks occurences which you can then edit at
   one)
-* <C-m> - from visual, clean after mark multiple
-* <C-k> - move your code one line up
-* <C-j> - move your code one line down
-* <C-p> - file search/open (ctrlp plugin)
+* &lt;C-m&gt; - from visual, clean after mark multiple
+* &lt;C-k&gt; - move your code one line up
+* &lt;C-j&gt; - move your code one line down
+* &lt;C-p&gt; - file search/open (ctrlp plugin)
 * \r - run current/last test file
 * \R - run nearest/last neaerest test
-* <nr>zy - save view number <nr>, think of this as fold yank
-* <nr>zp - load view number <nr>, think of this as fold paste
+* &lt;nr&gt;zy - save view number <nr>, think of this as fold yank
+* &lt;nr&gt;zp - load view number <nr>, think of this as fold paste
 * :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
 * :&& - && expands to current file's path in ex mode
 
@@ -70,11 +68,11 @@ git submodule update
 
 ## Features
 * [pathogen](https://github.com/tpope/vim-pathogen) enabled
-* lot of useful sets (wildmenu, encoding, nocompatible, tabs, wraps, etc.)
+* lot of useful options enabled (wildmenu, encoding, nocompatible, tabs, wraps, etc.)
 * editing gziped files
 * minimalized GUI
 * nice invisibles
 
 ## Thanks
-Drew for his [Vimcasts](http://vimcasts.org/)
+Drew for his [Vimcasts](http://vimcasts.org/) and Practical Vim book
 Derek Wyatt for his [posts on Vim](http://www.derekwyatt.org/vim/)

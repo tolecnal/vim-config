@@ -65,8 +65,20 @@ set fo-=t
 " global textwidth
 set textwidth=78
 
-" turn off mark multiple and lean after it
+" nice invisibles
+set listchars=tab:▸\ ,eol:¬
+
+" Auto window resizing
+" Nasty Hack: height must be bigger than minheight on setting.
+" Fails when huge at fist.
+set winwidth=84
+set winheight=10
+set winminheight=10
+set winheight=999
+
+" turn off mark multiple and clean after
 vmap <silent> <C-m> :call MarkMultipleClean()<CR>
+nmap <silent> <C-m> :call MarkMultipleClean()<CR>
 
 " spell checking
 nmap <silent> <leader>s :set spell!<CR>
@@ -74,24 +86,11 @@ nmap <silent> <leader>s :set spell!<CR>
 " highlighting search matches
 nmap <silent> <leader>h :set hlsearch!<CR>
 
-" show invisibles
-nmap <leader>l :set list!<CR>
-set listchars=tab:▸\ ,eol:¬
-
-" Unimpaired text bubbling
-nmap <C-k> [e
-nmap <C-j> ]e
-vmap <C-k> [egv
-vmap <C-j> ]egv
-
 " Gundo - visualizing redo/undo changes
 nmap <leader>g :GundoToggle<CR>
 
-" binding for editing vimrc
-nmap <leader>v :tabedit $MYVIMRC<CR>
-
-" change to directory of opened file
-nmap <silent> <leader>cd :lcd %:h<CR>
+" show invisibles
+nmap <leader>l :set list!<CR>
 
 " toggle color column
 function! ColorColumnToggle()
@@ -103,16 +102,6 @@ function! ColorColumnToggle()
 endfunc
 nmap <silent> <leader>cc :call ColorColumnToggle()<CR>
 
-" change behaviour of c-n c-p to more common-sense in command line
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-
-" view yanking/pasting (number specified by count, defaults to 1)
-" use in normal mode:
-" zy <some folding> 5zy zp
-noremap <silent> zy :<C-u>exe ":mkview ".v:count1<CR>
-noremap <silent> zp :<C-u>exe ":loadview ".v:count1<CR>
-
 " toggle relative/normal line numbering
 function! NumberToggle()
   if(&relativenumber == 1)
@@ -123,8 +112,41 @@ function! NumberToggle()
 endfunc
 nmap <leader>n :call NumberToggle()<CR>
 
-" switch paste/nopaste mode
-nmap <leader>p :set paste!<CR>:set paste?<CR>
+" Unimpaired text bubbling
+nmap <C-k> [e
+nmap <C-j> ]e
+vmap <C-k> [egv
+vmap <C-j> ]egv
+
+" binding for editing vimrc
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" change to directory of opened file
+nmap <silent> <leader>cd :lcd %:h<CR>
+
+" change behaviour of c-n c-p to more common-sense in command line
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" view yanking/pasting (number specified by count, defaults to 1)
+" use in normal mode:
+" zy <some folding> 5zy zp
+noremap <silent> zy :<C-u>exe ":mkview ".v:count1<CR>
+noremap <silent> zp :<C-u>exe ":loadview ".v:count1<CR>
+
+" %% will expand to current dir in command mode
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
+
+" eclim java
+nmap <leader>ji :JavaImport<CR>
+nmap <leader>jI :JavaImportMissing<CR>
+nmap <leader>jr :Java<CR>
+nmap <leader>jd :JavaDocSearch<CR>
+nmap <leader>eo :ProjectOpen<CR>
+
+" File Manager options
+let g:netrw_liststyle=3 " Use tree-mode as default view
+let g:netrw_preview=1 " preview window shown in a vertically split
 
 " writing to protected file using :Sw
 function! SudoWrite()
@@ -133,13 +155,15 @@ function! SudoWrite()
 endfunction
 command! -nargs=0 Sw call SudoWrite()
 
-" %% will expand to current dir in command mode
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
-
-" File Manager options
-let g:netrw_liststyle=3 " Use tree-mode as default view
-let g:netrw_browse_split=4 " Open file in previous buffer
-let g:netrw_preview=1 " preview window shown in a vertically split
+" minimizing GUI
+if has('gui_running')
+  set guioptions-=T  " remove toolbar
+  set guioptions-=m  " remove menubar
+  set guioptions-=r  " remove right-hand scroll bar
+  set guioptions-=L  " remove right-hand scroll bar
+  set guioptions-=e  " text tabs
+  set gfn=Droid\ Sans\ Mono\ Dotted\ 8
+endif
 
 if has("autocmd")
   " jump to last know position in the file
@@ -194,29 +218,3 @@ if has("autocmd")
   augroup END
 endif
 
-" minimizing GUI
-if has('gui_running')
-  set guioptions-=T  " remove toolbar
-  set guioptions-=m  " remove menubar
-  set guioptions-=r  " remove right-hand scroll bar
-  set guioptions-=L  " remove right-hand scroll bar
-  set guioptions-=e  " text tabs
-  set gfn=Droid\ Sans\ Mono\ Dotted\ 8
-endif
-
-
-" eclim java
-nmap <leader>ji :JavaImport<CR>
-nmap <leader>jI :JavaImportMissing<CR>
-nmap <leader>jr :Java<CR>
-nmap <leader>jd :JavaDocSearch<CR>
-nmap <leader>eo :ProjectOpen<CR>
-
-
-" Auto window resizing
-" Nasty Hack: height must be bigger than minheight on setting.
-" Fails when huge at fist.
-set winwidth=84
-set winheight=10
-set winminheight=10
-set winheight=999
