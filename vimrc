@@ -144,10 +144,6 @@ nmap <leader>jr :Java<CR>
 nmap <leader>jd :JavaDocSearch<CR>
 nmap <leader>eo :ProjectOpen<CR>
 
-" File Manager options
-let g:netrw_liststyle=3 " Use tree-mode as default view
-let g:netrw_preview=1 " preview window shown in a vertically split
-
 " writing to protected file using :Sw
 function! SudoWrite()
   w !sudo dd of=%
