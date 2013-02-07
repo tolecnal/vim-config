@@ -83,6 +83,16 @@ nmap <silent> <C-m> :call MarkMultipleClean()<CR>
 " spell checking
 nmap <silent> <leader>s :set spell!<CR>
 
+" toggle spelling language
+function! SpellingLanguageToggle()
+  if (&spelllang == 'pl')
+    set spelllang=en
+  else
+    set spelllang=pl
+  endif
+endfunc
+nmap <silent> <leader>S :call SpellingLanguageToggle()<CR>
+
 " highlighting search matches
 nmap <silent> <leader>h :set hlsearch!<CR>
 
