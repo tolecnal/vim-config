@@ -175,15 +175,15 @@ if has("autocmd")
   " jump to last know position in the file
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-  au FileType c            setl cindent   tw=79
-  au FileType cpp          setl cindent   tw=79
+  au FileType c            setl cindent tw=79
+  au FileType cpp          setl cindent tw=79
   au FileType java         setl ai ts=4 sw=4 sts=4   expandtab cindent
   au FileType perl         setl ai ts=4 sw=4 sts=4   expandtab cindent
   au FileType python       setl ai ts=4 sw=4 sts=4   expandtab
   au FileType ruby         setl ai ts=2 sw=2 sts=2   expandtab
   au FileType awk          setl ai ts=4 sw=4 sts=4 noexpandtab
   au FileType html         setl ai ts=4 sw=4 sts=4   expandtab
-  au FileType sh,zsh       setl ai ts=4 sw=4 sts=4 noexpandtab
+  au FileType sh,zsh       setl ai ts=4 sw=4 sts=4   expandtab
   au FileType vim          setl ai ts=2 sw=2 sts=2   expandtab
   au FileType xml          setl ai ts=4 sw=4 sts=4 noexpandtab
   au FileType css,scss     setl ai ts=4 sw=4 sts=4   expandtab
