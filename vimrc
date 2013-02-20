@@ -109,6 +109,9 @@ function! ColorColumnToggle()
 endfunc
 nmap <silent> <leader>cc :call ColorColumnToggle()<CR>
 
+" change to directory of opened file
+nmap <leader>cd :lcd %:h<CR>
+
 " toggle relative/normal line numbering
 function! NumberToggle()
   if(&relativenumber == 1)
@@ -117,7 +120,7 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-nmap <leader>n :call NumberToggle()<CR>
+nmap <silent> <leader>n :call NumberToggle()<CR>
 
 " Unimpaired text bubbling
 nmap <C-k> [e
@@ -127,9 +130,6 @@ vmap <C-j> ]egv
 
 " binding for editing vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
-
-" change to directory of opened file
-nmap <silent> <leader>cd :lcd %:h<CR>
 
 " change behaviour of c-n c-p to more common-sense in command line
 cnoremap <C-p> <Up>
