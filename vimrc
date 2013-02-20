@@ -17,6 +17,7 @@ set backspace=indent,eol,start
 
 set magic
 set number
+set relativenumber
 set cursorline
 set ruler
 
@@ -79,6 +80,9 @@ set winheight=999
 " turn off highlighting by hitting enter
 nmap <silent> <CR> :nohlsearch \| :call MarkMultipleClean()<CR>
 vmap <silent> <CR> :nohlsearch \| :call MarkMultipleClean()<CR>
+
+" navigate through buffers easily
+nmap <silent> gb :CtrlPBuffer<CR>
 
 " spell checking
 nmap <silent> <leader>s :set spell!<CR>
