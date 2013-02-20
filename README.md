@@ -43,6 +43,7 @@ git submodule update
 [xoria256](http://www.vim.org/scripts/script.php?script_id=2140)
 
 ## Bindings
+* enter - hides higlighting and behaves well in command edit mode
 * \l - toggle show invisibles
 * \h - toggle highligh search matches
 * \g - gundo toggle
@@ -57,6 +58,7 @@ git submodule update
 * &lt;C-k&gt; - move your code one line up
 * &lt;C-j&gt; - move your code one line down
 * &lt;C-p&gt; - file search/open (ctrlp plugin)
+* gb - open ctrl-p buffer browsing
 * \r - run current/last test file
 * \R - run nearest/last neaerest test
 * &lt;nr&gt;zy - save view number <nr>, think of this as fold yank
