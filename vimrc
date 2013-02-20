@@ -76,9 +76,9 @@ set winheight=10
 set winminheight=10
 set winheight=999
 
-" turn off mark multiple and clean after
-vmap <silent> <C-m> :call MarkMultipleClean()<CR>
-nmap <silent> <C-m> :call MarkMultipleClean()<CR>
+" turn off highlighting by hitting enter
+nmap <silent> <CR> :nohlsearch \| :call MarkMultipleClean()<CR>
+vmap <silent> <CR> :nohlsearch \| :call MarkMultipleClean()<CR>
 
 " spell checking
 nmap <silent> <leader>s :set spell!<CR>
@@ -92,9 +92,6 @@ function! SpellingLanguageToggle()
   endif
 endfunc
 nmap <silent> <leader>S :call SpellingLanguageToggle()<CR>
-
-" highlighting search matches
-nmap <silent> <leader>h :set hlsearch!<CR>
 
 " Gundo - visualizing redo/undo changes
 nmap <leader>g :GundoToggle<CR>
@@ -172,6 +169,9 @@ if has('gui_running')
 endif
 
 if has("autocmd")
+  " enter will work in command edit mode as intended
+	au CmdwinEnter * noremap <buffer><CR> <CR>
+
   " jump to last know position in the file
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
