@@ -40,7 +40,7 @@ git submodule update
 
 
 ##Theme
-[xoria256](http://www.vim.org/scripts/script.php?script_id=2140)
+* Transxoria - modified, transparent [xoria256](http://www.vim.org/scripts/script.php?script_id=2140)
 
 ## Bindings
 * enter - hides higlighting and behaves well in command edit mode

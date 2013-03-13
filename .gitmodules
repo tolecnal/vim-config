@@ -46,9 +46,6 @@
 [submodule "bundle/matchit"]
 	path = bundle/matchit
 	url = https://github.com/tsaleh/vim-matchit.git
-[submodule "bundle/xoria256"]
-	path = bundle/xoria256
-	url = https://github.com/vim-scripts/xoria256.vim.git
 [submodule "bundle/markmultiple"]
 	path = bundle/markmultiple
 	url = https://github.com/adinapoli/vim-markmultiple.git

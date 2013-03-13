@@ -2,7 +2,7 @@
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
-colorscheme xoria256
+colorscheme transxoria
 
 set fileencoding=utf-8
 
