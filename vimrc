@@ -276,6 +276,7 @@ function! UpdateDNSSerialZone()
     " Write the line back to the file
     call setline(numberOfLine, line)
     echo "Old serial = \"".serialZone."\" updated serial to = \"".serialZoneUpdated."\""
+    call feedkeys("\<ESC>gg=G\<CR>")
   endif
 endfunction
 
