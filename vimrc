@@ -1,3 +1,5 @@
+set t_Co=256
+let Tlist_Inc_Winwidth=0
 " pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -228,3 +230,53 @@ if has("autocmd")
   augroup END
 endif
 
+function PosXML()
+  " Get current line
+  for linenum in range(a:firstline, a:lastline)
+    let curr_line = getline(linenum)
+    let replacement = substitute(curr_line, '.* |', '','g')
+    let replacement = substitute(replacement, '\s\?[<-]\(.\)[->]\s\?', '\1', 'g')
+    let replacement = substitute(replacement, '\n', '', 'g')
+    call setline(linenum, replacement)
+  endfor
+
+  " Report what has been done
+  "if a:lastline > a:firstline
+  "  echo "Cleaned the PosXML input: " (a:lastline - a:firstline) "lines..."
+  "endif
+endfunction
+nmap <leader>P :1,$call PosXML()<CR>
+
+" This function is used to update the serial in the SOA from a bind file
+function! UpdateDNSSerialZone()
+  " Initialisation des variables
+  let serialZone=0
+  let serialZoneUpdated=0
+  "Search for a line that start with a year and contains the word Serial
+  let numberOfLine = search('\(19\|20\)\d\d\(0[1-9]\|1[012]\)\(0[1-9]\|[12][0-9]\|3[01]\)\d\d.*[Ss]erial.*')
+  if numberOfLine == 0
+    echo "No bind serial found ! so not updating the file"
+  else
+
+    "Get the line contents 
+    let line = getline(numberOfLine)
+    "Extract the serial number  
+    let serialZone=strpart(line, match(line,'\(19\|20\)\d\d\(0[1-9]\|1[012]\)\(0[1-9]\|[12][0-9]\|3[01]\)'),match(line,";")-1-match(line,'\(19\|20\)\d\d\(0[1-9]\|1[012]\)\(0[1-9]\|[12][0-9]\|3[01]\)'))
+
+    " Create a new server number for today
+    let serialZoneUpdated=strftime("%Y%m%d")."01"
+
+    " If the found serial date matches the one from today then we have to
+    " increment
+    if serialZone =~ "^.*".strftime("%Y%m%d").".*"
+      let serialZoneUpdated=serialZone+1
+    endif
+    " Build a new line with the updated serial
+    let line = "\t".serialZoneUpdated."\t; Serial (YYYYMMDD##)"
+    " Write the line back to the file
+    call setline(numberOfLine, line)
+    echo "Old serial = \"".serialZone."\" updated serial to = \"".serialZoneUpdated."\""
+  endif
+endfunction
+
+nmap <leader>S :call UpdateDNSSerialZone()<CR>
