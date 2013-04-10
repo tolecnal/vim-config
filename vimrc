@@ -231,22 +231,16 @@ if has("autocmd")
   augroup END
 endif
 
-function PosXML()
-  " Get current line
-  for linenum in range(a:firstline, a:lastline)
-    let curr_line = getline(linenum)
-    let replacement = substitute(curr_line, '.* |', '','g')
-    let replacement = substitute(replacement, '\s\?[<-]\(.\)[->]\s\?', '\1', 'g')
-    let replacement = substitute(replacement, '\n', '', 'g')
-    call setline(linenum, replacement)
-  endfor
-
-  " Report what has been done
-  "if a:lastline > a:firstline
-  "  echo "Cleaned the PosXML input: " (a:lastline - a:firstline) "lines..."
-  "endif
+" Function to clean up PosXML log and prettify the XML output
+function! PosXML() range
+  silent %s/.*|//
+  silent %s/\s\?[<-]\(.\)[->]\s\?/\1/g
+  silent %join!
+  silent %s/CR\s\{-}LF/\r/g
+  silent v/<Body>/d
+  silent .!xmllint --format --recover - 2>/dev/null
 endfunction
-nmap <leader>P :1,$call PosXML()<CR>
+nmap <Leader>P :call PosXML()<CR>
 
 " This function is used to update the serial in the SOA from a bind file
 function! UpdateDNSSerialZone()
