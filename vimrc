@@ -124,7 +124,7 @@ function! NumberToggle()
     set number
   else
     set relativenumber
-  endif
+ endif
 endfunc
 nmap <silent> <leader>n :call NumberToggle()<CR>
 
@@ -231,7 +231,9 @@ if has("autocmd")
   augroup END
 endif
 
+"
 " Function to clean up PosXML log and prettify the XML output
+"
 function! PosXML() range
   silent %s/.*|//
   silent %s/\s\?[<-]\(.\)[->]\s\?/\1/g
@@ -242,7 +244,9 @@ function! PosXML() range
 endfunction
 nmap <Leader>P :call PosXML()<CR>
 
-" This function is used to update the serial in the SOA from a bind file
+"
+"This function is used to update the serial in the SOA from a bind file
+"
 function! UpdateDNSSerialZone()
   " Initialisation des variables
   let serialZone=0
@@ -274,8 +278,29 @@ function! UpdateDNSSerialZone()
     call feedkeys("\<ESC>gg=G\<CR>")
   endif
 endfunction
-
 nmap <leader>S :call UpdateDNSSerialZone()<CR>
+
+"
+" This function toggles line number between relative/none relative/no
+" numbering. Useful for copy and paste via putty etc.
+"
+let g:relativenumber = 0
+function! ToogleRelativeNumber()
+  if g:relativenumber == 0
+    let g:relativenumber = 1
+    set norelativenumber
+    set number
+  elseif g:relativenumber == 1
+    let g:relativenumber = 2
+    set nonumber
+    set relativenumber
+  else
+    let g:relativenumber = 0
+    set nonumber
+    set norelativenumber
+  endif
+endfunction
+map <F12> :call ToogleRelativeNumber()<CR>
 
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline+=%-3.3n\                      " buffer number
