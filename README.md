@@ -8,7 +8,7 @@
 It's as simple as that:
 
 ```bash
-git clone https://github.com/ivyl/vim-config.git ~/.vim
+git clone https://github.com/tolecnal/vim-config.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 cd ~/.vim
 git submodule init
@@ -65,7 +65,7 @@ git submodule update
 * &lt;nr&gt;zp - load view number <nr>, think of this as fold paste
 * :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
 * :&& - && expands to current file's path in ex mode
-
+* :call Pastebin() - sends curent (selected) buffer (visual mode) to paste
 ## Motions
 * ai, ii - indented block
 
@@ -75,6 +75,8 @@ git submodule update
 * editing gziped files
 * minimalized GUI
 * nice invisibles
+* Nagios Syntax highlighting files
+* Nice informative statusbar
 
 ## Thanks
 Drew for his [Vimcasts](http://vimcasts.org/) and Practical Vim book
