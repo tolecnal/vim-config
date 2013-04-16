@@ -314,3 +314,15 @@ set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
 set statusline+=%b,0x%-8B\                   " current char
 set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 set laststatus=2
+
+"
+" Config for tskeleton
+" Ref: https://github.com/tomtom/tskeleton_vim
+"
+autocmd BufNewFile *.suffix       TSkeletonSetup template.suffix
+autocmd BufNewFile /here/*.suffix TSkeletonSetup othertemplate.suffix
+
+let g:tskelUserName = "Jostein Elvaker Haande - aka tolecnal"
+let g:tskelUserEmail = "tolecnal@tolecnal.net"
+let g:tskelUserWWW = "http://tolecnal.net"
+let g:tskelLicense = "GPL2"
