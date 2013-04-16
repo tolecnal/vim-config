@@ -326,3 +326,11 @@ let g:tskelUserName = "Jostein Elvaker Haande - aka tolecnal"
 let g:tskelUserEmail = "tolecnal@tolecnal.net"
 let g:tskelUserWWW = "http://tolecnal.net"
 let g:tskelLicense = "GPL2"
+
+"
+" Paste toggle
+" Source: http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
+"
+nnoremap <F11> :set invpaste paste?<CR>
+set pastetoggle=<F11>
+set showmode
