@@ -19,7 +19,9 @@ set backspace=indent,eol,start
 
 set magic
 set number
-set relativenumber
+if version >= 703
+  set relativenumber
+endif
 set cursorline
 set ruler
 
