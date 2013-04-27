@@ -321,13 +321,15 @@ set laststatus=2
 " Config for tskeleton
 " Ref: https://github.com/tomtom/tskeleton_vim
 "
-autocmd BufNewFile *.suffix       TSkeletonSetup template.suffix
-autocmd BufNewFile /here/*.suffix TSkeletonSetup othertemplate.suffix
+autocmd BufNewFile *.pl           TSkeletonSetup perl.pl
+autocmd BufNewFile *.sh           TSkeletonSetup sh.sh
 
 let g:tskelUserName = "Jostein Elvaker Haande - aka tolecnal"
 let g:tskelUserEmail = "tolecnal@tolecnal.net"
 let g:tskelUserWWW = "http://tolecnal.net"
 let g:tskelLicense = "GPL2"
+
+autocmd BufWritePre * call tskeleton#IncreaseRevisionNumber()
 
 "
 " Paste toggle
