@@ -38,7 +38,6 @@ git submodule update
 * [vroom](https://github.com/skalnik/vim-vroom)
 * [crosshairs](https://github.com/chreekat/vim-paren-crosshairs.git)
 
-
 ##Theme
 * Transxoria - modified, transparent [xoria256](http://www.vim.org/scripts/script.php?script_id=2140)
 
@@ -66,6 +65,7 @@ git submodule update
 * :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
 * :&& - && expands to current file's path in ex mode
 * :call Pastebin() - sends curent (selected) buffer (visual mode) to paste
+
 ## Motions
 * ai, ii - indented block
 
