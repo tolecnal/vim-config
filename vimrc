@@ -338,3 +338,7 @@ autocmd BufWritePre * call tskeleton#IncreaseRevisionNumber()
 nnoremap <F11> :set invpaste paste?<CR>
 set pastetoggle=<F11>
 set showmode
+
+" More Apache config files
+au BufNewFile,BufRead access.conf*,apache.conf*,apache2.conf*,httpd.conf*,srm.conf* setl filetype=apache
+au BufNewFile,BufRead */etc/apache2/*.conf*,*/etc/apache2/conf.*/*,*/etc/apache2/mods-*/*,*/etc/apache2/sites-*/*,*/etc/httpd/conf.d/*.conf* setl filetype=apache
