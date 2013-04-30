@@ -342,3 +342,17 @@ set showmode
 " More Apache config files
 au BufNewFile,BufRead access.conf*,apache.conf*,apache2.conf*,httpd.conf*,srm.conf* setl filetype=apache
 au BufNewFile,BufRead */etc/apache2/*.conf*,*/etc/apache2/conf.*/*,*/etc/apache2/mods-*/*,*/etc/apache2/sites-*/*,*/etc/httpd/conf.d/*.conf* setl filetype=apache
+
+" JSON stuff
+" http://www.vim.org/scripts/script.php?script_id=1945
+au! BufRead,BufNewFile *.json setl filetype=json
+
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+  "autocmd FileType json set foldmethod=syntax
+augroup END
