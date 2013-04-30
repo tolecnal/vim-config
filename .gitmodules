@@ -76,3 +76,6 @@
 [submodule "bundle/tskeletons"]
 	path = bundle/tskeletons
 	url = https://github.com/tomtom/tskeletons
+[submodule "bundle/vim-json"]
+	path = bundle/vim-json
+	url = https://github.com/elzr/vim-json
