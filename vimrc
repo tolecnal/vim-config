@@ -241,10 +241,20 @@ function! PosXML() range
   silent %s/\s\?[<-]\(.\)[->]\s\?/\1/g
   silent %join!
   silent %s/CR\s\{-}LF/\r/g
-  silent v/<Body>/d
-  silent .!xmllint --format --recover - 2>/dev/null
+  "silent v/<Body>/d
+  "silent .!xmllint --format --recover - 2>/dev/null
 endfunction
 nmap <Leader>P :call PosXML()<CR>
+
+function! ProtelLog() range
+  silent %s/.*|//
+  silent %s/\s\?[<-]\(.\)[->]\s\?/\1/g
+  silent %join!
+endfunction
+
+function XmlTidy() range
+  silent .!xmllint --format --recover - 2>/dev/null
+endfunction
 
 "
 "This function is used to update the serial in the SOA from a bind file
