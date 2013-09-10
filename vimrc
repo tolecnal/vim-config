@@ -10,7 +10,7 @@ set fileencoding=utf-8
 " Deal with problem with UTF-8 encoding in Windows
 if has("win32")
   set fileencodings=utf-8
-  set encodings=utf-8
+  set encoding=utf-8
 endif
 
 set undolevels=100
