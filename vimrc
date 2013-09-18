@@ -7,6 +7,11 @@ call pathogen#infect()
 colorscheme transxoria
 
 set fileencoding=utf-8
+" Deal with problem with UTF-8 encoding in Windows
+if has("win32")
+  set fileencodings=utf-8
+  set encoding=utf-8
+endif
 
 set undolevels=100
 
@@ -241,10 +246,20 @@ function! PosXML() range
   silent %s/\s\?[<-]\(.\)[->]\s\?/\1/g
   silent %join!
   silent %s/CR\s\{-}LF/\r/g
-  silent v/<Body>/d
-  silent .!xmllint --format --recover - 2>/dev/null
+  "silent v/<Body>/d
+  "silent .!xmllint --format --recover - 2>/dev/null
 endfunction
 nmap <Leader>P :call PosXML()<CR>
+
+function! ProtelLog() range
+  silent %s/.*|//
+  silent %s/\s\?[<-]\(.\)[->]\s\?/\1/g
+  silent %join!
+endfunction
+
+function XmlTidy() range
+  silent .!xmllint --format --recover - 2>/dev/null
+endfunction
 
 "
 "This function is used to update the serial in the SOA from a bind file
