@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 #
 # One line to give the program's name and a brief description.
 # Copyright (C) 2013 <+AUTHOR+>
@@ -24,6 +24,6 @@
 # @License:     <+LICENSE+>
 # @Created:     <+DATE+>
 # @Last Change: 
-# @Revision:    1
+# @Revision:    2
 #
 <+CURSOR+>
