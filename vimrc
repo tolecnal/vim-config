@@ -343,6 +343,7 @@ let g:tskelUserName = "Jostein Elvaker Haande - aka tolecnal"
 let g:tskelUserEmail = "tolecnal@tolecnal.net"
 let g:tskelUserWWW = "http://tolecnal.net"
 let g:tskelLicense = "GPL2"
+let g:tskelDateFormat = "%c"
 
 autocmd BufWritePre * call tskeleton#IncreaseRevisionNumber()
 
