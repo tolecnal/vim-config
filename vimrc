@@ -6,6 +6,7 @@ call pathogen#infect()
 
 colorscheme jellybeans
 let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
 
 set fileencoding=utf-8
 " Deal with problem with UTF-8 encoding in Windows
