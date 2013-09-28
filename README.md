@@ -37,9 +37,15 @@ git submodule update
 * [bundler](https://github.com/tpope/vim-bundler)
 * [vroom](https://github.com/skalnik/vim-vroom)
 * [crosshairs](https://github.com/chreekat/vim-paren-crosshairs.git)
+* [gist-vim] (https://github.com/mattn/gist-vim)
+* [webapi-vim] (https://github.com/mattn/webapi-vim)
+* [vim-json] (https://github.com/elzr/vim-json)
+* [vim-airline] (https://github.com/bling/vim-airline)
+* [jellybeans] (https://github.com/nanotech/jellybeans.vim)
+* [vim-indent-guides] (https://github.com/nathanaelkane/vim-indent-guides)
 
 ##Theme
-* Transxoria - modified, transparent [xoria256](http://www.vim.org/scripts/script.php?script_id=2140)
+* Jellybeans - stock options
 
 ## Bindings
 * enter - hides higlighting and behaves well in command edit mode
@@ -65,6 +71,7 @@ git submodule update
 * :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
 * :&& - && expands to current file's path in ex mode
 * :call Pastebin() - sends curent (selected) buffer (visual mode) to paste
+* \ig - to toggle indentation guides 
 
 ## Motions
 * ai, ii - indented block
