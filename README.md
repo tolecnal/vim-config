@@ -43,6 +43,7 @@ git submodule update
 * [vim-airline] (https://github.com/bling/vim-airline)
 * [jellybeans] (https://github.com/nanotech/jellybeans.vim)
 * [vim-indent-guides] (https://github.com/nathanaelkane/vim-indent-guides)
+* [nerdtree] (https://github.com/scrooloose/nerdtree)
 
 ##Theme
 * Jellybeans - stock options
