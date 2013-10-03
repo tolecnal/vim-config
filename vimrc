@@ -133,7 +133,7 @@ function! NumberToggle()
     set number
   else
     set relativenumber
- endif
+  endif
 endfunc
 nmap <silent> <leader>n :call NumberToggle()<CR>
 
@@ -185,10 +185,10 @@ endif
 
 if has("autocmd")
   " enter will work in command edit mode as intended
-	au CmdwinEnter * noremap <buffer><CR> <CR>
+  au CmdwinEnter * noremap <buffer><CR> <CR>
 
   " jump to last know position in the file
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
   au FileType c            setl cindent tw=79
   au FileType cpp          setl cindent tw=79
@@ -211,7 +211,7 @@ if has("autocmd")
 
   au FileType markdown     setl tw=77 fo+=t
   au FileType gitcommit    setl tw=72 fo+=t
-  
+
   " autoreload vimrc
   au BufWritePost .vimrc source $MYVIMRC
   au BufWritePost _vimrc source $MYVIMRC
@@ -361,3 +361,18 @@ augroup json_autocmd
   autocmd FileType json set expandtab
   "autocmd FileType json set foldmethod=syntax
 augroup END
+
+"
+" DiffWithSaved()
+" Function to git a diff of current buffer and the original file
+" URL: http://vim.wikia.com/wiki/Diff_current_buffer_and_the_original_file
+"
+
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
