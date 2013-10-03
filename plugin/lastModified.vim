@@ -21,13 +21,14 @@
 " @Website:     http://tolecnal.net
 " @License:     GPL2
 " @Created:     2013-09-24
-"	@Last Change: Tue 24 Sep 2013 13:53:37 CEST
-" @Revision:    36
+"	@Last Change: Thu 03 Oct 2013 20:39:57 CEST
+" @Revision:    38
 "
 
 
 function! UpdateLastMod()
   " Init the variables
+  let startPos = getpos('.')
   let lastMod=0
   let lastModModified=0
   let lastModFormat='@Last Change:'
@@ -46,6 +47,7 @@ function! UpdateLastMod()
     let line = curStart.lastModFormat." ".lastModCurrentTime
     call setline(numberOfLine, line)
   endif
+  call setpos('.', startPos)
 endfunction
 
 autocmd BufWritePre * call UpdateLastMod()
