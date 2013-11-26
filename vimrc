@@ -276,9 +276,9 @@ function! UpdateDNSSerialZone()
     echo "No bind serial found ! so not updating the file"
   else
 
-    "Get the line contents 
+    "Get the line contents
     let line = getline(numberOfLine)
-    "Extract the serial number  
+    "Extract the serial number
     let serialZone=strpart(line, match(line,'\(19\|20\)\d\d\(0[1-9]\|1[012]\)\(0[1-9]\|[12][0-9]\|3[01]\)'),match(line,";")-1-match(line,'\(19\|20\)\d\d\(0[1-9]\|1[012]\)\(0[1-9]\|[12][0-9]\|3[01]\)'))
 
     " Create a new server number for today
@@ -376,3 +376,6 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
+
+" Maps <F5> to remove unwanted whitespaces in current buffer
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
