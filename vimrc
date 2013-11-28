@@ -259,9 +259,29 @@ function! ProtelLog() range
   silent %join!
 endfunction
 
+function! PostLog()
+  silent v/PostPayment\|PostCharge/d
+  silent g/PostPaymentResult\|PostChargeResult/d
+  silent %s/.*: Socket request.*with Parameters '//g
+  silent %s/' by automate.*//g
+  silent %s/^\(.*\)$/<Post>\1<\/Post>/g
+  let optag = "<Body>"
+  let cltag = "</Body>"
+  call append(line('^'), optag)
+  call append(line('$'), cltag)
+  silent %s/\(<\/.\{-}>\)/\1\r/g
+  silent %s/<Post>/<Post>\r/g
+  setfiletype xml
+  silent .!xmllient --format --recover - 2>/dev/null
+  call feedkeys("\<ESC>gg=G\<CR>")
+  silent %s/\_.<\/Body>\_./<\/Body>/g
+endfunction
+
 function XmlTidy() range
   silent .!xmllint --format --recover - 2>/dev/null
 endfunction
+
+command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a
 
 "
 "This function is used to update the serial in the SOA from a bind file
@@ -379,3 +399,14 @@ com! DiffSaved call s:DiffWithSaved()
 
 " Maps <F5> to remove unwanted whitespaces in current buffer
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+"
+" Enable the syntastic plugin, set mode to active
+" passive_filetypes are file types to *not* be checked by syntastic
+"
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['html'] }
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_always_populate_loc_list=1
