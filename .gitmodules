@@ -103,3 +103,9 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic
+[submodule "bundle/neocomplcache"]
+	path = bundle/neocomplcache
+	url = https://github.com/Shougo/neocomplcache.vim
+[submodule "bundle/PIV"]
+	path = bundle/PIV
+	url = https://github.com/spf13/PIV

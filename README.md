@@ -72,7 +72,7 @@ git submodule update
 * :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
 * :&& - && expands to current file's path in ex mode
 * :call Pastebin() - sends curent (selected) buffer (visual mode) to paste
-* \ig - to toggle indentation guides 
+* \ig - to toggle indentation guides
 
 ## Motions
 * ai, ii - indented block
