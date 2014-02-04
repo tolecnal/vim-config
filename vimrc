@@ -13,7 +13,7 @@ set fileencoding=utf-8
 if has("win32")
   set fileencodings=utf-8
   set encoding=utf-8
-  let $PATH = $HOME . '/vimfiles/bin:' . $PATH
+  let $PATH = $HOME . '\vimfiles\bin:' . $PATH
 endif
 
 set undolevels=100
