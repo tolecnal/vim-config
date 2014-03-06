@@ -5,6 +5,7 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 colorscheme jellybeans
+set background=dark
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 
