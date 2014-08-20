@@ -412,6 +412,15 @@ com! DiffSaved call s:DiffWithSaved()
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 "
+" Maps =j to pretty format JSON and function
+" to do the same
+"
+nmap =j :%!python -m json.tool<CR>
+function! FormatJSON() 
+  :%!python -m json.tool 
+endfunction
+
+"
 " Enable the syntastic plugin, set mode to active
 " passive_filetypes are file types to *not* be checked by syntastic
 "
