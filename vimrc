@@ -280,15 +280,9 @@ function! PostLog()
   silent %s/\_.<\/Body>\_./<\/Body>/g
 endfunction
 
-if !exists("g:xmllint")
-  let g:xmllint = "xmllint"
-endif
-
 function XmlTidy() range
   silent !clear
-  execute "!" . g:xmllint . " --format --recover - 2>/dev/null"
-  "silent !clear
-  "execute "!" . g:xmllint . " " . bufname("%")
+  silent .!xmllint --format --recover - 2>/dev/null
 endfunction
 command! -nargs=? XmlTidy call XmlTidy()<cr> 
 
