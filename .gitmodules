@@ -115,3 +115,9 @@
 [submodule "bundle/vim-matchit"]
 	path = bundle/vim-matchit
 	url = https://github.com/tolecnal/vim-matchit.git
+[submodule "bundle/obsidian2"]
+	path = bundle/obsidian2
+	url = https://github.com/abra/obsidian2
+[submodule "bundle/vim-perl"]
+	path = bundle/vim-perl
+	url = https://github.com/vim-perl/vim-perl
