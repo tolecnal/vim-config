@@ -4,8 +4,8 @@ let Tlist_Inc_Winwidth=0
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
-set background=dark
 colorscheme jellybeans
+set background=dark
 
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
@@ -275,14 +275,16 @@ function! PostLog()
   silent %s/\(<\/.\{-}>\)/\1\r/g
   silent %s/<Post>/<Post>\r/g
   setfiletype xml
-  silent .!xmllient --format --recover - 2>/dev/null
+  silent .!xmllint --format --recover - 2>/dev/null
   call feedkeys("\<ESC>gg=G\<CR>")
   silent %s/\_.<\/Body>\_./<\/Body>/g
 endfunction
 
 function XmlTidy() range
   silent !clear
+  silent %s#\\"#"#g
   silent .!xmllint --format --recover - 2>/dev/null
+  silent !clear
 endfunction
 command! -nargs=? XmlTidy call XmlTidy()<cr> 
 
