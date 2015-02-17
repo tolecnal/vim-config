@@ -1,3 +1,4 @@
+set nocompatible
 set t_Co=256
 let Tlist_Inc_Winwidth=0
 " pathogen
@@ -286,7 +287,7 @@ function XmlTidy() range
   silent .!xmllint --format --recover - 2>/dev/null
   silent !clear
 endfunction
-command! -nargs=? XmlTidy call XmlTidy()<cr> 
+command! -nargs=? XmlTidy call XmlTidy()
 
 command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a
 
@@ -412,8 +413,8 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " to do the same
 "
 nmap =j :%!python -m json.tool<CR>
-function! FormatJSON() 
-  :%!python -m json.tool 
+function! FormatJSON()
+  :%!python -m json.tool
 endfunction
 
 "
@@ -478,3 +479,26 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+function! SolrCleanup()
+  set nopaste
+  setfiletype text
+  silent :%s#\s\?{\s\?\n##g
+  silent :%s#\s\?},\?\s\?\n##g
+  silent :%s#"platform_document_id":\s"\(.*\)",#<Item>\r<docid>\1</docid>>#g
+  silent :%s#"score":\s\(.*\)$#<score>\1</score>\r</Item>#g
+  silent :%s#"platform_documentmetadata":\s"\(.*\)",#\1#g
+  silent :%s#\\n#\r#g
+  silent :%s#\\"#"#g
+  silent :%s#\s\+$##g
+  let optag = "<Body>"
+  let cltag = "</Body>"
+  call append(line('^'), optag)
+  call append(line('$'), cltag)
+  silent :%g/^$/d
+  "silent .!xmllint --format --recover - 2>/dev/null
+  call feedkeys("\<ESC>gg=G\<CR>")
+  "call feedkeys("\<ESC>gg=G\<CR>")
+  setfiletype xml
+endfunction
+command! -nargs=? SolrCleanup call SolrCleanup()
