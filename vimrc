@@ -362,8 +362,6 @@ let g:tskelUserWWW = "http://tolecnal.net"
 let g:tskelLicense = "GPL2"
 let g:tskelDateFormat = "%c"
 
-autocmd BufWritePre * call tskeleton#IncreaseRevisionNumber()
-
 "
 " Paste toggle
 " Source: http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste

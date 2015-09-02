@@ -124,3 +124,6 @@
 [submodule "bundle/vim-log-syntax"]
 	path = bundle/vim-log-syntax
 	url = https://github.com/dzeban/vim-log-syntax
+[submodule "bundle/tversions_vim"]
+	path = bundle/tversions_vim
+	url = https://github.com/tomtom/tversions_vim
