@@ -419,7 +419,7 @@ endfunction
 " passive_filetypes are file types to *not* be checked by syntastic
 "
 let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [] }
+      \ 'active_filetypes': [] }
 "  \ 'passive_filetypes': [''] }
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
@@ -433,7 +433,7 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+  let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
@@ -499,3 +499,15 @@ function! SolrCleanup()
   setfiletype xml
 endfunction
 command! -nargs=? SolrCleanup call SolrCleanup()
+
+let g:tversions = {
+      \ 'last change': {
+      \   'marker_rx': '@Last Change:\s*\w\{3}\s\d\{2}\s\w\{3}\s\d\{4}\s\d\d:\d\d:\d\d\s\w\{3,}',
+      \   'group_idx': -1,
+      \   'inc': 'strftime("%a %d %b %X %Z")',
+      \   },
+      \ 'rev': {
+      \   'marker_rx': '@Revision:\s*[^12-9-]\{-}\zs-\?\d\+',
+      \   'inc': '%s + 1',
+      \   },
+      \ }

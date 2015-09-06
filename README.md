@@ -15,7 +15,7 @@ git submodule init
 git submodule update
 ```
 
-##Plugins
+## Plugins
 * [commentary](https://github.com/tpope/vim-commentary)
 * [ctrlp](https://github.com/kien/ctrlp.vim)
 * [fugitive](https://github.com/tpope/vim-fugitive)
@@ -45,7 +45,7 @@ git submodule update
 * [vim-indent-guides] (https://github.com/nathanaelkane/vim-indent-guides)
 * [nerdtree] (https://github.com/scrooloose/nerdtree)
 
-##Theme
+## Theme
 * Jellybeans - stock options
 
 ## Bindings
