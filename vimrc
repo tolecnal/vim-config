@@ -5,8 +5,8 @@ let Tlist_Inc_Winwidth=0
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
-colorscheme jellybeans
 set background=dark
+colorscheme jellybeans
 
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
@@ -506,8 +506,4 @@ let g:tversions = {
       \   'group_idx': -1,
       \   'inc': 'strftime("%a %d %b %X %Z")',
       \   },
-      \ 'rev': {
-      \   'marker_rx': '@Revision:\s*[^12-9-]\{-}\zs-\?\d\+',
-      \   'inc': '%s + 1',
-      \   },
-      \ }
+      \}
