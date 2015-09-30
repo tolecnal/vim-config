@@ -500,6 +500,29 @@ function! SolrCleanup()
 endfunction
 command! -nargs=? SolrCleanup call SolrCleanup()
 
+function! LicCleanup()
+  set nopaste
+  setfiletype text
+  silent :%s#\(<License[^/>]*>\)#\1\r#
+  silent :%s#\(<ActivationDate>.*</ActivationDate>\)#\1\r#
+  silent :%s#\(<CustomerId>.*</CustomerId>\)#\1\r#
+  silent :%s#\(<CustomerName>.*</CustomerName>\)#\1\r#
+  silent :%s#\(<SalesOrderNumber>.*</SalesOrderNumber>\)#\1\r#
+  silent :%s#\(<SalesOrderDate>.*</SalesOrderDate>\)#\1\r#
+  silent :%s#\(<ProductId>.*</ProductId>\)#\1\r#
+  silent :%s#\(<ProductDescription>.*</ProductDescription>\)#\1\r#
+  silent :%s#\(</MachineKey>\)#\1\r#
+  silent :%s#\(</MachineKey>\)#\1\r#
+  silent :%s#\(<Capabilities>\)#\1\r#
+  "silent :%s#\(<Capability[^/>]*/>\)#\1\r#
+  silent :%s#\(</Capabilities>\)#\1\r#
+  silent :%s#\( />\)#\1\r#g
+  silent :%s#\(name="[^"]*"\)#\1\r\t#g
+  silent :g/^$/d
+  setfiletype xml
+endfunction
+command! -nargs=? LicCleanup call LicCleanup()
+
 let g:tversions = {
       \ 'last change': {
       \   'marker_rx': '@Last Change:\s*\w\{3}\s\d\{2}\s\w\{3}\s\d\{4}\s\d\d:\d\d:\d\d\s\w\{3,}',
