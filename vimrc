@@ -7,10 +7,13 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 if &term == "xterm-256color"
-        set t_Co=256
-        colorscheme jellybeans
+  set t_Co=256
+  colorscheme jellybeans
+elseif &term == "putty-256color"
+  set t_Co=256
+  colorscheme jellybeans
 else
-        colorscheme base16-solarized
+  colorscheme base16-solarized
 endif
 
 let g:airline#extensions#tabline#enabled = 1
