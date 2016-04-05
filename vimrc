@@ -524,7 +524,7 @@ function! LicCleanup()
   silent :%s#\(<Capabilities>\)#\1\r#
   "silent :%s#\(<Capability[^/>]*/>\)#\1\r#
   silent :%s#\(</Capabilities>\)#\1\r#
-  silent :%s#\( />\)#\1\r#g
+  silent :%s#\(/>\)#\1\r#g
   silent :%s#\(name="[^"]*"\)#\1\r\t#g
   silent :g/^$/d
   setfiletype xml
