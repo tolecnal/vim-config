@@ -383,17 +383,17 @@ au BufNewFile,BufRead */etc/apache2/*.conf*,*/etc/apache2/conf.*/*,*/etc/apache2
 
 " JSON stuff
 " http://www.vim.org/scripts/script.php?script_id=1945
-au! BufRead,BufNewFile *.json setl filetype=json
+"au! BufRead,BufNewFile *.json setl filetype=json
 
-augroup json_autocmd
-  autocmd!
-  autocmd FileType json set autoindent
-  autocmd FileType json set formatoptions=tcq2l
-  autocmd FileType json set textwidth=78 shiftwidth=2
-  autocmd FileType json set softtabstop=2 tabstop=8
-  autocmd FileType json set expandtab
-  "autocmd FileType json set foldmethod=syntax
-augroup END
+"augroup json_autocmd
+"  autocmd!
+"  autocmd FileType json set autoindent
+"  autocmd FileType json set formatoptions=tcq2l
+"  autocmd FileType json set textwidth=78 shiftwidth=2
+"  autocmd FileType json set softtabstop=2 tabstop=8
+"  autocmd FileType json set expandtab
+"  "autocmd FileType json set foldmethod=syntax
+"augroup END
 
 "
 " DiffWithSaved()
@@ -538,3 +538,31 @@ let g:tversions = {
       \   'inc': 'strftime("%a %d %b %X %Z")',
       \   },
       \}
+
+command Thtml :%!tidy -q -i --show-errors 0
+command Txml  :%!tidy -q -i --show-errors 0 -xml
+
+function! HTMLEncode()
+perl << EOF
+ use HTML::Entities;
+ @pos = $curwin->Cursor();
+ $line = $curbuf->Get($pos[0]);
+ $encvalue = encode_entities($line);
+ $curbuf->Set($pos[0],$encvalue)
+EOF
+endfunction
+
+function! HTMLDecode()
+perl << EOF
+ use HTML::Entities;
+ @pos = $curwin->Cursor();
+ $line = $curbuf->Get($pos[0]);
+ $encvalue = decode_entities($line);
+ $curbuf->Set($pos[0],$encvalue)
+EOF
+endfunction
+
+nnoremap <Leader>h :call HTMLEncode()<CR>
+nnoremap <Leader>H :call HTMLDecode()<CR>
+
+nmap =aip :%s/\(\d*\.\d*\.\d*\.\)\(\d*\)/xxx.yyy.aaa.bbb/g

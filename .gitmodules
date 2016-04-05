@@ -133,3 +133,9 @@
 [submodule "bundle/apprentice"]
 	path = bundle/apprentice
 	url = https://github.com/romainl/Apprentice
+[submodule "bundle/vim-ps1"]
+	path = bundle/vim-ps1
+	url = https://github.com/PProvost/vim-ps1
+[submodule "bundle/vim-puppet"]
+	path = bundle/vim-puppet
+	url = https://github.com/rodjek/vim-puppet
