@@ -567,3 +567,17 @@ nnoremap <Leader>h :call HTMLEncode()<CR>
 nnoremap <Leader>H :call HTMLDecode()<CR>
 
 nmap =aip :%s/\(\d*\.\d*\.\d*\.\)\(\d*\)/xxx.yyy.aaa.bbb/g
+
+" Append modeline after last line in buffer.
+" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
+" files.
+function! AppendModeline()
+  let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d ft=%s %set :",
+        \ &tabstop, &shiftwidth, &textwidth, &filetype, &expandtab ? '' : 'no')
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), l:modeline)
+endfunction
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
+autocmd FileType nagios set commentstring=#\%s
+" vim: set ts=2 sw=2 tw=78 ft=vim et :
