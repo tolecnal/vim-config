@@ -220,6 +220,7 @@ if has("autocmd")
   au FileType coffee       setl ai ts=2 sw=2 sts=2   expandtab
   au FileType tex,plaintex setl ai ts=2 sw=2 sts=2 noexpandtab fo+=t
   au FileType php          setl ai ts=2 sw=2 sts=2   expandtab cindent
+  au FileType apache       setl ai ts=4 sw=4 sts=4 noexpandtab
 
   au FileType markdown     setl tw=77 fo+=t
   au FileType gitcommit    setl tw=72 fo+=t
