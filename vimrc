@@ -534,9 +534,9 @@ command! -nargs=? LicCleanup call LicCleanup()
 
 let g:tversions = {
       \ 'last change': {
-      \   'marker_rx': '@Last Change:\s*\w\{3}\s\d\{2}\s\w\{3}\s\d\{4}\s\d\d:\d\d:\d\d\s\w\{3,}',
+      \   'marker_rx': '@Last Change:\s*\zs\w\+\s\d\+\s\w\+\s\d\+\s\d\d:\d\d:\d\d\s\w\+',
       \   'group_idx': -1,
-      \   'inc': 'strftime("%a %d %b %X %Z")',
+      \   'inc': 'strftime("%a %d %b %Y %X %Z")',
       \   },
       \}
 
@@ -580,4 +580,8 @@ endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 autocmd FileType nagios set commentstring=#\%s
+
+map <leader>tn :call feedkeys("ggv=G")<CR>:Tabularize /^\s\+\w\+\s\+\zs<CR>call feedkeys("gg=G")
+vmap <leader>tn :call feedkeys("ggv=G")<CR>:Tabularize /^\s\+\w\+\s\+\zs<CR>call feedkeys("gg=G"
+
 " vim: set ts=2 sw=2 tw=78 ft=vim et :
