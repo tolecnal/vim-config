@@ -139,3 +139,6 @@
 [submodule "bundle/vim-puppet"]
 	path = bundle/vim-puppet
 	url = https://github.com/rodjek/vim-puppet
+[submodule "bundle/icinga2-vim"]
+	path = bundle/icinga2-vim
+	url = https://github.com/tolecnal/icinga2-vim
