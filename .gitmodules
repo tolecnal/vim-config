@@ -142,3 +142,6 @@
 [submodule "bundle/icinga2-vim"]
 	path = bundle/icinga2-vim
 	url = https://github.com/tolecnal/icinga2-vim
+[submodule "bundle/vim-table-mode"]
+	path = bundle/vim-table-mode
+	url = https://github.com/dhruvasagar/vim-table-mode
