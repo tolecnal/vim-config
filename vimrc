@@ -13,7 +13,7 @@ elseif &term == "putty-256color"
   set t_Co=256
   colorscheme jellybeans
 else
-  colorscheme base16-solarized
+  colorscheme delek
 endif
 
 let g:airline#extensions#tabline#enabled = 1
