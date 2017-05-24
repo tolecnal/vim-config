@@ -206,7 +206,7 @@ if has("autocmd")
   au FileType cpp          setl cindent tw=79
   au FileType java         setl ai ts=4 sw=4 sts=4   expandtab cindent
   au FileType perl         setl ai ts=4 sw=4 sts=4   expandtab cindent
-  au FileType python       setl ai ts=4 sw=4 sts=4   expandtab
+  au FileType python       setl ts=4 sw=4 sts=4   expandtab
   au FileType ruby         setl ai ts=2 sw=2 sts=2   expandtab
   au FileType awk          setl ai ts=4 sw=4 sts=4 noexpandtab
   au FileType html         setl ai ts=4 sw=4 sts=4   expandtab

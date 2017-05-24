@@ -5,3 +5,4 @@ doc/tags
 view/*
 cache/*
 plugin/postmail.conf
+spell/*
