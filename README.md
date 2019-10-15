@@ -37,13 +37,13 @@ git submodule update
 * [bundler](https://github.com/tpope/vim-bundler)
 * [vroom](https://github.com/skalnik/vim-vroom)
 * [crosshairs](https://github.com/chreekat/vim-paren-crosshairs.git)
-* [gist-vim] (https://github.com/mattn/gist-vim)
-* [webapi-vim] (https://github.com/mattn/webapi-vim)
-* [vim-json] (https://github.com/elzr/vim-json)
-* [vim-airline] (https://github.com/bling/vim-airline)
-* [jellybeans] (https://github.com/nanotech/jellybeans.vim)
-* [vim-indent-guides] (https://github.com/nathanaelkane/vim-indent-guides)
-* [nerdtree] (https://github.com/scrooloose/nerdtree)
+* [gist-vim](https://github.com/mattn/gist-vim)
+* [webapi-vim](https://github.com/mattn/webapi-vim)
+* [vim-json](https://github.com/elzr/vim-json)
+* [vim-airline](https://github.com/bling/vim-airline)
+* [jellybeans](https://github.com/nanotech/jellybeans.vim)
+* [vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides)
+* [nerdtree](https://github.com/scrooloose/nerdtree)
 
 ## Theme
 * Jellybeans - stock options
