@@ -18,6 +18,7 @@ endif
 
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
+let g:airline_section_y = airline#section#create(['A: %b 0x%B'])
 
 set fileencoding=utf-8
 " Deal with problem with UTF-8 encoding in Windows
