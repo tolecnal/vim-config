@@ -58,17 +58,17 @@ git submodule update
 * \s - togle spell checking
 * \v - edit your vimrc in new tab, config is reloaded on save
 * \n - toggle between normal/relative line numbering
-* &lt;C-n&gt; - start mark multiple (marks occurences which you can then edit at
+* <C-n> - start mark multiple (marks occurences which you can then edit at
   one)
-* &lt;C-m&gt; - from visual, clean after mark multiple
-* &lt;C-k&gt; - move your code one line up
-* &lt;C-j&gt; - move your code one line down
-* &lt;C-p&gt; - file search/open (ctrlp plugin)
+* <C-m> - from visual, clean after mark multiple
+* <C-k> - move your code one line up
+* <C-j> - move your code one line down
+* <C-p> - file search/open (ctrlp plugin)
 * gb - open ctrl-p buffer browsing
 * \r - run current/last test file
 * \R - run nearest/last neaerest test
-* &lt;nr&gt;zy - save view number <nr>, think of this as fold yank
-* &lt;nr&gt;zp - load view number <nr>, think of this as fold paste
+* <nr>zy - save view number <nr>, think of this as fold yank
+* <nr>zp - load view number <nr>, think of this as fold paste
 * :Sw - does sudo write of edited file (:w !sudo tee % > /dev/null)
 * :&& - && expands to current file's path in ex mode
 * :call Pastebin() - sends curent (selected) buffer (visual mode) to paste
