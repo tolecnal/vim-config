@@ -145,3 +145,6 @@
 [submodule "bundle/vim-table-mode"]
 	path = bundle/vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode
+[submodule "/home/tolecnal/.vim/bundle/ansible-vim"]
+	path = /home/tolecnal/.vim/bundle/ansible-vim
+	url = https://github.com/pearofducks/ansible-vim
