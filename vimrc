@@ -253,6 +253,8 @@ if has("autocmd")
     au FileAppendPost             *.gz !mv <afile> <afile>:r
     au FileAppendPost             *.gz !gzip <afile>:r
   augroup END
+
+  au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 endif
 
 "
