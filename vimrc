@@ -204,6 +204,7 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
   au FileType c            setl cindent tw=79
+  au FileType cs           setl cindent tw=79 ai ts=4 sw=4 sts=4
   au FileType cpp          setl cindent tw=79
   au FileType java         setl ai ts=4 sw=4 sts=4   expandtab cindent
   au FileType perl         setl ai ts=4 sw=4 sts=4   expandtab cindent
